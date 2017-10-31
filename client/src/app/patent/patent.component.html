@@ -1,0 +1,430 @@
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+
+    <div id="slideBlocks" class="bc">
+        <div class="searchHolder pc bc">
+            <form action="/Index/Index" method="post">
+                <div class="inputHolder pc">
+                    <div class="inputBg">
+                        <div class="changeClass f20 introjs-step" data-introinfo="中国专利库 ，外国专利库 切换！" data-position="TR" id="step4" onselectstart="return false;" style="display: block;">中国专利库<span></span></div>
+                        <div class="changeClass foreign f20" style="display: none;" onselectstart="return false;">外国专利库<span></span></div>
+                        <input name="searchQuerystring" class="search f20" type="text" placeholder="新的一天，从SO开始" autocomplete="off" id="searchQuerystring">
+                        <input type="text" class="dn">
+                        <button id="searchSubmit" class="searchBtn ps txtoff" type="submit">Search</button>
+                    </div>
+                    <a class="adsLink f18" href="/ads">高级检索</a>
+
+                </div>
+                <div id="ixcfpclass">
+                    <ul class="pClass bc f14 clearfix" id="CNpclass" style="opacity: 100; left: 0px; display: block;">
+                         <li class="pc-cbHolder fl" id="c-cbAll-holder">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" id="c-cbAll">
+                            </span>
+                            <a>全选</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="1">
+                            </span>
+                            <a>发明专利</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="2">
+                            </span>
+                            <a>实用新型</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="4">
+                            </span>
+                            <a>外观设计</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="8">
+                            </span>
+                            <a>发明授权专利</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="16">
+                            </span>
+                            <a>中国台湾专利</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="32">
+                            </span>
+                            <a>香港特区</a>
+                        </li>
+
+                    </ul>
+                    <ul class="pClass foreign bc f14 clearfix" style="display: none; left: 0px; opacity: 0;" id="Fpclass">
+                        <li class="pc-cbHolder fl" id="f-cbAll-holder">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" id="f-cbAll">
+                            </span>
+                            <a>全选</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="64">
+                            </span>
+                            <a>美国公开</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="128">
+                            </span>
+                            <a>美国授权</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="256">
+                            </span>
+                            <a>日本</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="512">
+                            </span>
+                            <a>英国</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="1024">
+                            </span>
+                            <a>法国</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="2048">
+                            </span>
+                            <a>德国</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="4096">
+                            </span>
+                            <a>瑞士</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="8192">
+                            </span>
+                            <a>俄罗斯</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="16384">
+                            </span>
+                            <a>PCT组织</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="32768">
+                            </span>
+                            <a>欧专</a>
+                        </li>
+                        <li class="pc-cbHolder pc-Korea fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="65536">
+                            </span>
+                            <a>韩国</a>
+                        </li>
+                        <li class="pc-cbHolder fl">
+                            <span class="pc-cb">
+                                <input type="checkbox" checked="checked" value="131072">
+                            </span>
+                            <a>东南亚</a>
+                        </li>
+                    </ul>
+                    <input type="hidden" name="pc_isChinese" value="1" style="opacity: 0; left: 0px; display: none;">
+                    <input type="hidden" name="pc_ptype" value="7" style="opacity: 0; left: 0px; display: none;">
+                </div>
+                    <style>
+                        #scroImg {height: 180px;width: 670px;overflow: hidden;margin: 0 24px;padding-bottom: 50px;position: relative;}
+                        .imgUl {position: relative;left: 0px;height: 180px;width: 1340px;top:10px;}
+                        .imgUl li {background: no-repeat center;width: 670px;height: 180px;float: left;}
+                        .scrollBtn {width: 56px;height: 56px;display: inline-block;position: absolute;bottom: 90px;cursor: pointer;}
+                    </style>
+                    <div id="scroImg" cindex="1" class="fl">
+                        <ul class="imgUl" style="left: -670px;">
+                                <li>
+                                    <a href="http://www.patexplorer.com/advertise/plusmember.html" adp="SoZone_MainAd_1" style="background: url(http://f1.baiten.cn/Download?fid=157e64b1-0144-ccb8-b422-08d4e60a8c3d&amp;fuid=03fcbfe1f0b4d6e8543b77f485eb7fc9-59133&amp;type=image) center no-repeat;" target="_blank" class="wordload-ad-bg"></a>
+                                </li>
+                                <li>
+                                    <a href="http://www.chinapatentproduct.com/" adp="SoZone_MainAd_2" style="background: url(http://f1.baiten.cn/Download?fid=d57036b0-f695-c51b-e613-08d4be9e1fb4&amp;fuid=7270fc81ff3d0f6d00237597d8acd0b0-84741&amp;type=image) center no-repeat;" target="_blank" class="wordload-ad-bg"></a>
+                                </li>
+                        </ul>
+                        <span id="prev" class="scrollBtn" style="background: url(/Content/Styles/Default/img/prevArrow.png); left: 5px"></span>
+                        <span id="next" class="scrollBtn" style="background: url(/Content/Styles/Default/img/nextArrow.png); right: 5px;"></span>
+                    </div>
+</form>        </div>
+	    <div class="searchHolder bc" id="CategorySearch111" style="display:none;">
+<form action="/Index/CategorySearch" data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#CategorySearch111" id="form0" method="post">    <div class="inputHolder ipc bc">
+        <div class="inputBg ipc">
+            <div class="categoryClass f20">IPC<span></span></div>
+            <div class="categoryClass foreign f20" style="display: none">Locarno<span></span></div>
+            <input type="hidden" name="searchType" value="0">
+            <input name="categoryQuerystring" class="search f20" type="text" placeholder="新的一天，从SO开始" autocomplete="off" id="categoryQuerystring">
+            <input type="text" class="dn">
+            <button id="categorySubmit" class="searchBtn ps f20 txtoff" type="submit">分类检索</button>
+        </div>
+    </div>
+    <div style="width: 760px;" class="bc">
+        <ul class="csClass bc f14 clearfix">
+            <li class="cs-cbHolder fl" style="margin-right: 40px;">
+                <span class="inChecked">
+                    <input type="radio" checked="checked" name="cs_radio0">
+                    <input type="hidden" name="cs_keyword" value="0">
+                </span>
+                <a>输入关键字查分类号</a>
+            </li>
+            <li class="cs-cbHolder fl">
+                <span class="inChecked inxunchecked">
+                    <input type="radio" name="cs_radio1">
+                </span>
+                <a>输入分类号查含义</a>
+            </li>
+        </ul>
+    </div>
+    <div class="favSearch bc">
+        <div class="fs-title">
+            <h2 class="f14">常用分类</h2>
+        </div>
+        <div class="fs-main">
+            <ul class="fs-m-list bc clearfix" id="commonIpc">
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(H04)&amp;type=63" target="_blank" title="通信技术">通信技术</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(H02K)&amp;type=63" target="_blank" title="电机">电机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(H01)&amp;type=63" target="_blank" title="电子元件">电子元件</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(G11)&amp;type=63" target="_blank" title="信息存储">信息存储</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(G08)&amp;type=63" target="_blank" title="信号装置">信号装置</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(G01)&amp;type=63" target="_blank" title="测试测量">测试测量</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(G02%20or%20G03)&amp;type=63" target="_blank" title="光学摄影">光学摄影</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(F41%20or%20F42)&amp;type=63" target="_blank" title="武器弹药">武器弹药</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(F21%20or%20H01K)&amp;type=63" target="_blank" title="照明">照明</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(F01%20or%20F02%20or%20F03%20or%20F04)&amp;type=63" target="_blank" title="发动机泵">发动机泵</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E21)&amp;type=63" target="_blank" title="钻进采矿">钻进采矿</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E05B%20or%20E06)&amp;type=63" target="_blank" title="锁门窗梯子">锁门窗梯子</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E04)&amp;type=63" target="_blank" title="建筑物">建筑物</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E01)&amp;type=63" target="_blank" title="路桥">路桥</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E03)&amp;type=63" target="_blank" title="给排水">给排水</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(E02)&amp;type=63" target="_blank" title="土木工程">土木工程</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(C08%20or%20C09%20or%20C10%20or%20C11)&amp;type=63" target="_blank" title="高分子">高分子</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(C07)&amp;type=63" target="_blank" title="有机化学">有机化学</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(C01%20or%20C03%20or%20C04)&amp;type=63" target="_blank" title="无机化学">无机化学</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B67)&amp;type=63" target="_blank" title="包装容器">包装容器</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B65%20or%20B66)&amp;type=63" target="_blank" title="存储运输">存储运输</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B64)&amp;type=63" target="_blank" title="飞行航空">飞行航空</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B63)&amp;type=63" target="_blank" title="船舶">船舶</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B61)&amp;type=63" target="_blank" title="轨道车辆">轨道车辆</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B60)&amp;type=63" target="_blank" title="一般车辆">一般车辆</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B25%20or%20B26)&amp;type=63" target="_blank" title="手动工具">手动工具</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(B27%20or%20B28%20or%20B29%20or%20B31)&amp;type=63" target="_blank" title="非金属加工">非金属加工</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(A61)&amp;type=63" target="_blank" title="医疗卫生">医疗卫生</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(A45%20or%20A46%20or%20A47)&amp;type=63" target="_blank" title="日用品家具">日用品家具</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(A01%20or%20C05)&amp;type=63" target="_blank" title="农林牧猎渔">农林牧猎渔</a>
+                        </li>
+            </ul>
+            <ul class="fs-m-list bc clearfix" id="commoLocarno" style="display:none;">
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A20-01&amp;type=4" target="_blank" title="自动售货机">自动售货机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A16-03&amp;type=4" target="_blank" title="影印机">影印机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A16-02&amp;type=4" target="_blank" title="放映机">放映机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A16-01&amp;type=4" target="_blank" title="照相摄影">照相摄影</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A15-09&amp;type=4" target="_blank" title="机床和铸造">机床和铸造</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A15-02&amp;type=4" target="_blank" title="泵和压缩机">泵和压缩机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A15-01&amp;type=4" target="_blank" title="发动机">发动机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A13-02&amp;type=4" target="_blank" title="电池">电池</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A13-01&amp;type=4" target="_blank" title="发电机">发电机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A12-05&amp;type=4" target="_blank" title="电梯升降机">电梯升降机</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A12-03&amp;type=4" target="_blank" title="有轨车辆">有轨车辆</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A09-04&amp;type=4" target="_blank" title="篮子">篮子</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A09-03&amp;type=4" target="_blank" title="盒">盒</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A09-01&amp;type=4" target="_blank" title="瓶">瓶</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A03-01&amp;type=4" target="_blank" title="箱子钱包">箱子钱包</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A02-05&amp;type=4" target="_blank" title="领带围巾">领带围巾</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A02-06&amp;type=4" target="_blank" title="手套">手套</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A30-03&amp;type=4" target="_blank" title="睡垫和窝">睡垫和窝</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A30-04&amp;type=4" target="_blank" title="鞍具">鞍具</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A%2024-02&amp;type=4" target="_blank" title="医疗器械">医疗器械</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A12-06&amp;type=4" target="_blank" title="船艇">船艇</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(08-10%20or%2012-11)&amp;type=4" target="_blank" title="摩托车">摩托车</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A12-08&amp;type=4" target="_blank" title="汽车货车">汽车货车</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A11-05&amp;type=4" target="_blank" title="节日装饰品">节日装饰品</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A11-01&amp;type=4" target="_blank" title="珠宝首饰">珠宝首饰</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A03-03&amp;type=4" target="_blank" title="雨伞">雨伞</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(02-01%20or%2002-03)&amp;type=4" target="_blank" title="鞋袜帽子">鞋袜帽子</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A(02-01%20or%2002-02%20or%2002-07%20or%2030-01)&amp;type=4" target="_blank" title="服装">服装</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A01-06&amp;type=4" target="_blank" title="动物食品">动物食品</a>
+                        </li>
+                        <li class="cas-m-l-item fl f14">
+                            <a class="txtcut cas-m-l-itemling" href="/Search/GoToSearch?sq=ic1%3A01-03&amp;type=4" target="_blank" title="黄油奶制品">黄油奶制品</a>
+                        </li>
+            </ul>
+        </div>
+        <div class="fs-footer"></div>
+    </div>
+</form></div>
+
+
+
+
+	    <div class="searchHolder bc" style="display:none;">
+	        <div class="inputHolder bc f24" style="text-align: center; line-height:68px;color:#5a5a5a">
+	            超领先智能检索即将推出，敬请期待！！
+	        </div>
+	    </div>
+	</div>

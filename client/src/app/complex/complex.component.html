@@ -1,0 +1,136 @@
+<div class="container-fluid fr-main">
+  <div class="row fr-disp">
+    <div class="col-xs-2 fr-left">
+      <div *ngFor="let g of dbgroups" class="panel panel-primary">
+        <div class="panel-heading">
+          <input type="checkbox" checked="">
+          <span class="panel-title">{{g.name}}</span>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li *ngFor="let t of g.sub_types">
+              <label>
+                <input type="checkbox" data-value="{{t.code}}" checked="">
+                <span>{{t.name}}</span>
+                </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--表达式-->
+    <div class="col-xs-10 fr-right">
+      <div class="m-expr">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">检索表达式预览</span>
+          </div>
+          <div class="panel-body">
+            <form action="/search" method="post" id="Js_major_search_form">
+              <div class="alert alert-dismissible alert-danger" style="margin-bottom: 5px;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h1><b>sorry!</b>没有查询到"<span></span>"的相关专利</h1>
+                <p>没有搜索到相关专利，原因可能是：</p>
+                <p>· 此专利不存在。</p>
+                <p>· 通过申请(专利)号、公开(公告)号查询时，请直接输入号码，前面不用加"ZL"或者"CN"。</p>
+                <p>· 该发明创造目前未公开/未公告，处于保密专利申请的状态。<span>这段时间一般是自申请日起几个月到几十个月，过段时间再来查吧。</span></p>
+                <p>· 检索条件不正确。<span>请您核对是否对搜索条件进行了不正确的字段限定</span>。</p>
+                <p>· 搜索关键词范围太窄。<span>请尝试使用其他关键词或近义词、使用含义更为宽泛的关键词。</span></p>
+                <p>· 非正确的搜索请求 <span>例如：输入的检索的关键词组中间不能包含以下特殊字符 “；”， “——”，“,”,“()”。</span></p>
+              </div>
+              <textarea class="form-control" rows="5" id="textArea" name="q" readonly="readonly" style="margin-bottom: 5px;"></textarea>
+              <input type="hidden" name="sc" value="35184372088831">
+              <div>
+                <a routerLink="/pat-search" routerLinkActive="active" class="btn btn-primary">检索</a>
+                <a href="#" class="btn btn-default">清空</a>
+                <a href="#" class="btn btn-default">查看命中条数 <span class="badge">{{result_num}}</span></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-expr-item">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">关键词</span>
+          </div>
+          <div class="panel-body">
+            <div *ngFor="let k_item of key_group" class="form-group">
+              <label class="col-lg-2 control-label">{{k_item.title}}</label>
+              <div class="col-lg-10">
+                <a class="ui-select"><span>OR</span><i class="iconfont">&#xe637;</i></a>
+                <input type="text" class="form-control ui-text" name="all">
+                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">日期</span>
+          </div>
+          <div class="panel-body">
+            <div *ngFor="let d_item of date_group" class="form-group">
+              <label class="col-lg-2 control-label">{{d_item.title}}</label>
+              <div class="col-lg-10 between">
+                <a class="ui-select"><span>OR</span><i class="iconfont">&#xe637;</i></a>
+                <a class="ui-select ui-date-select"><span>某个时间段</span><i class="iconfont">&#xe637;</i></a>
+                <input type="text" class="form-control ui-text fn-hide" name="ad">
+                <span class="to fn-hide">to</span>
+                <input type="text" class="form-control ui-text" name="ad">
+                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">号码</span>
+          </div>
+          <div class="panel-body">
+            <div *ngFor="let c_item of code_group" class="form-group">
+              <label class="col-lg-2 control-label">{{c_item.title}}</label>
+              <div class="col-lg-10">
+                <a class="ui-select"><span>OR</span><i class="iconfont">&#xe637;</i></a>
+                <input type="text" class="form-control ui-text" name="all">
+                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">分类号</span>
+          </div>
+          <div class="panel-body">
+            <div *ngFor="let t_item of type_group" class="form-group">
+              <label class="col-lg-2 control-label">{{t_item.title}}</label>
+              <div class="col-lg-10">
+                <a class="ui-select"><span>OR</span><i class="iconfont">&#xe637;</i></a>
+                <input type="text" class="form-control ui-text" name="all">
+                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="panel-title">名称地址</span>
+          </div>
+          <div class="panel-body">
+            <div *ngFor="let na_item of name_group" class="form-group">
+              <label class="col-lg-2 control-label">{{na_item.title}}</label>
+              <div class="col-lg-10">
+                <a class="ui-select"><span>OR</span><i class="iconfont">&#xe637;</i></a>
+                <input type="text" class="form-control ui-text" name="all">
+                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

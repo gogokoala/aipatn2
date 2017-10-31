@@ -1,0 +1,89 @@
+/* complex search */
+
+.fr-left .cs-database-list {
+  padding-left: 10px;
+}
+
+.panel {
+  margin-bottom: 6px;
+}
+.panel-heading {
+  padding: 5px 10px;
+}
+.panel-body {
+  padding: 5px 10px;
+}
+.panel-body > ul {
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
+.m-expr {
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  margin-right: 45px;
+}
+
+.m-expr-item {
+  max-height: 100%!important;
+  overflow: auto;
+  margin-top: 485px;
+}
+
+.control-label {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.ui-select {
+  border: 1px solid #e0e0e0;
+  float: left;
+  padding: 5px 0px;
+  font-size: 12px;
+  width: 55px;
+  text-indent: 7px;
+  cursor: pointer;
+  border-radius: 2px 0 0 2px;
+  height: 32px;
+  box-sizing: border-box;
+  font-size: 12px !important;
+  display: inline-block;
+  background: #fff;
+  color: #7d7d7d;
+}
+.form-group .ui-date-select {
+  width: 112px;
+  margin-left: -1px;
+}
+.form-group .between .to {
+  width: 31px;
+  text-align: center;
+  float: left;
+  display: block;
+  position: relative;
+  top: 6px;
+  font-weight: 700;
+}
+.form-group .between .ui-text {
+  width: 200px;
+  display: block;
+}
+.form-group .ui-text {
+  width: 545px;
+  height: 32px;
+  line-height: 18px;
+  padding: 6px 0;
+  border: 1px solid #e0e0e0;
+  float: left;
+  margin-left: -1px;
+  outline: none;
+  text-indent: 1em;
+  border-radius: 0 2px 2px 0;
+}
+.iconfont-plus {
+  color: #1976D2;
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
