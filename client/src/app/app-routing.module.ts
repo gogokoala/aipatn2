@@ -10,7 +10,6 @@ const appRoutes: Routes = [
   { path: 'pat-simple',  component: SimpleComponent },
   { path: 'pat-complex', component: ComplexComponent },
   { path: 'pat-search',  component: PatentResultComponent },
-  { path: 'callback', component: OAuth2CallbackComponent },
 ];
 
 @NgModule({
