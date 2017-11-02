@@ -14,12 +14,14 @@ import { SF1Module } from './sf1/sf1.module'
 
 /* Service */
 import { UserService } from './services/user.service';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,5 +23,5 @@ router.post('/public/register', register)
 
 router.post('/public/login', login)
 
-router.post('/api/sf1', sf1)
+router.post('/public/sf1', sf1)
 
