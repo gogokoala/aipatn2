@@ -34,7 +34,7 @@ createConnection().then(async connection => {
     // unless the URL starts with '/api/login, /api/register'
     const jwtSecret = config.get<string>('jwtSecret')
     app.use(jwtKoa({ secret: jwtSecret }).unless({
-        path: [/^\/public/]
+        path: [/^\/ping/,/^\/sid/,/^\/vcode/,/^\/register/,/^\/login/,/^\/sf1/]
     }))
 
     // 使用响应处理中间件

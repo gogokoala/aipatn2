@@ -18,20 +18,22 @@ export async function search (ctx: Context, next: Function) {
     const req = ctx.request;
     debug('req.body: %o', req.body)
 
-    const {
-        exp,
-        dbs,
-        order,
-        option,
-        from,
-        to,
-        displayCols
-    } = req.body
-
-    // 检查 querystring
-    if ([exp, dbs, order, option, from, to].some(v => !v)) {
-        throw new Error('无效的访问参数')
+    const searchParams = req.body
+    if (!searchParams || !searchParams.exp) {
+        throw new Error('无效的请求')
     }
+    /**
+     * 下列参加中
+     * exp 必选
+     * dbs、order等 可选
+     */
+    const exp = searchParams.exp
+    const dbs = searchParams.dbs ? searchParams.dbs : 'FMZL,FMSQ,SYXX,WGZL'
+    const order = searchParams.order ? searchParams.order : ''
+    const option = searchParams.option && parseInt(searchParams.option) < 3  ? searchParams.option : 2
+    const from = searchParams.from && !isNaN(searchParams.from) ? searchParams.from : 0
+    const to = searchParams.to && !isNaN(searchParams.to) ? searchParams.to : 10
+    const displayCols = searchParams.displayCols ? searchParams.displayCols : ''
 
     const params = oauth2.getApiParams()
     const clientId = params.clientId
@@ -39,8 +41,11 @@ export async function search (ctx: Context, next: Function) {
     const openId = params.openId
     const accessToken = params.accessToken
 
-    let res = await Axios.post(url,
-        {
+    debug('exp = %s, dbs = %s', exp, dbs)
+    let res = await Axios({
+        url: url,
+        method: 'post',
+        params:{
             exp: exp,
             dbs: dbs,
             order: order,
@@ -50,12 +55,15 @@ export async function search (ctx: Context, next: Function) {
             displayCols: displayCols,
             openid: openId,
             access_token: accessToken
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
-    )
+    })
 
     const sf1Resp: sf1Response = res.data
     debug('search result = %o', sf1Resp)
-    if (sf1Resp.status) {
+    if (parseInt(sf1Resp.status)) {
         throw new Error(`${sf1Resp.status} - ${sf1Resp.message}`)
     }
 
