@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ComplexSearchCondition, ComplexSearchConditionItem } from './complex-search.service';
 
 @Component({
   selector: 'app-complex-search',
   templateUrl: './complex-search.component.html',
   styleUrls: ['./complex-search.component.css']
 })
+
+
 export class ComplexSearchComponent implements OnInit {
 
   result_num = 0;
@@ -50,19 +53,13 @@ export class ComplexSearchComponent implements OnInit {
       ]
     },
   ];
-  key_group: any[] = [
-    { id: 1, name: '', title: '所有字段' },
-    { id: 2, name: '', title: '专利名称/摘要' },
-    { id: 3, name: '', title: '专利名称/摘要/权利要求' },
-    { id: 4, name: '', title: '专利名称' },
-    { id: 5, name: '', title: '摘要' },
-    { id: 6, name: '', title: '权利要求' },
-    { id: 8, name: '', title: '说明书' },
-  ];
+  
+  key_group=Array<ComplexSearchCondition>();
+  
   date_group: any[] = [
-    { id: 1, name: '', title: '申请日' },
-    { id: 2, name: '', title: '公开（公告）日' },
-    { id: 3, name: '', title: '授权日' },
+    { id: 1, name: '', title: '申请日'},
+    { id: 2, name: '', title: '公开（公告）日'},
+    { id: 3, name: '', title: '授权日'},
   ];
   code_group: any[] = [
     { id: 1, name: '', title: '申请号' },
@@ -83,9 +80,29 @@ export class ComplexSearchComponent implements OnInit {
     { id: 8, name: '', title: '申请人地址' },
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    let k: any[] = [
+      { id: 1, name: '', title: '所有字段' },
+      { id: 2, name: '', title: '专利名称/摘要' },
+      { id: 3, name: '', title: '专利名称/摘要/权利要求'},
+      { id: 4, name: '', title: '专利名称'},
+      { id: 5, name: '', title: '摘要'},
+      { id: 6, name: '', title: '权利要求'},
+      { id: 8, name: '', title: '说明书'},
+    ];
+    
+    for (let i=0;i<k.length;i++){
+      console.log(k[i]);
+
+      let cond=new ComplexSearchCondition( k[i].id, k[i].name, k[i].title );
+      this.key_group.push(cond);
+    }
+  }
 
   ngOnInit() {
+    
+
+
   }
 
   doSearch() {
@@ -93,4 +110,9 @@ export class ComplexSearchComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  valToString(){
+    let v="";
+    v = JSON.stringify(this.key_group);
+    return v;
+  }
 }
