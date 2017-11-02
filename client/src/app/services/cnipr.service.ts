@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { debug } from 'debug';
+import * as monent from 'moment'
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CniprService {
 
-  private moment = require('moment');
   private debug = new debug('CniprService');
   private cniprUrl = 'https://open.cnipr.com';
   private headers = new Headers({'Content-Type': 'application/json'});

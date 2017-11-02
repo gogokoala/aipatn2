@@ -34,7 +34,7 @@
   bottom: 0;
   /*z-index:-2;*/
   width:100%;
-  background:url('../../assets/images/bg/bg01.jpg') no-repeat center #333;
+  background:url('/assets/images/bg/bg01.jpg') no-repeat center #333;
   background-size:cover;
   -webkit-background-size: cover;-moz-background-size: cover;
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'pat-complex',
-  templateUrl: './complex.component.html',
-  styleUrls: ['./complex.component.css']
+  selector: 'app-complex-search',
+  templateUrl: './complex-search.component.html',
+  styleUrls: ['./complex-search.component.css']
 })
-export class ComplexComponent implements OnInit {
+export class ComplexSearchComponent implements OnInit {
 
   result_num = 0;
   dbgroups: any[] = [
@@ -82,10 +83,14 @@ export class ComplexComponent implements OnInit {
     { id: 8, name: '', title: '申请人地址' },
   ];
 
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  doSearch() {
+    const link = ['/sf1/search'];
+    this.router.navigate(link);
   }
 
 }

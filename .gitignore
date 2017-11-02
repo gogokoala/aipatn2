@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# local project file
+dist/
+config/
+history.md

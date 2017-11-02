@@ -13,13 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { SF1Module } from './sf1/sf1.module'
 
 /* Service */
-import { UserService } from './services/user.service'
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HeaderComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

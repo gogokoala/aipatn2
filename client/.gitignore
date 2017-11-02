@@ -41,3 +41,8 @@ yarn-error.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# local project file
+dist/
+config/
+history.md

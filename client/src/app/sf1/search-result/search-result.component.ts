@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'patent-result',
-  templateUrl: './patent-result.component.html',
-  styleUrls: ['./patent-result.component.css']
+  selector: 'app-search-result',
+  templateUrl: './search-result.component.html',
+  styleUrls: ['./search-result.component.css']
 })
-export class PatentResultComponent implements OnInit {
+export class SearchResultComponent implements OnInit {
 
   filter_items: any[] = [
     {id: 1, name: '国家'},
@@ -23,7 +23,7 @@ export class PatentResultComponent implements OnInit {
     {id: 13, name: '发明人'},
     {id: 14, name: '代理机构'},
     {id: 15, name: '代理人'},
-  ];
+  ]
 
   constructor() { }
 

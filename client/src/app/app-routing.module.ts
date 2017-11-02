@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SimpleComponent } from './simple/simple.component';
-import { ComplexComponent } from './complex/complex.component';
-import { PatentResultComponent } from './patent-result/patent-result.component';
-
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/pat-simple', pathMatch: 'full' },
-  { path: 'pat-simple',  component: SimpleComponent },
-  { path: 'pat-complex', component: ComplexComponent },
-  { path: 'pat-search',  component: PatentResultComponent },
+  { path: '', redirectTo: 'sf1', pathMatch: 'full' },
+  { path: 'sf1', loadChildren: 'app/sf1/sf1.module#SF1Module' }
 ];
 
 @NgModule({
