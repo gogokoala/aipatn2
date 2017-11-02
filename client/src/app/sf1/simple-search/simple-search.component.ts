@@ -8,14 +8,17 @@ import { Router } from '@angular/router';
 })
 export class SimpleSearchComponent implements OnInit {
 
+  searchKeyword: string
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   doSearch() {
-    const link = ['/sf1/search'];
-    this.router.navigate(link);
+    if (this.searchKeyword) {
+      this.router.navigate(['/sf1/search'], { queryParams: { kw: this.searchKeyword } });
+    }
   }
 
 }

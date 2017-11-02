@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
+import { CalendarModule } from 'primeng/primeng'
 
 import { SF1Service } from './sf1.service'
 import { SF1RoutingModule } from './sf1-routing.module'
 
-import { SearchResultComponent } from './search-result/search-result.component'
+import { SF1ListComponent } from './sf1-list/sf1-list.component'
 import { ComplexSearchComponent } from './complex-search/complex-search.component'
 import { SimpleSearchComponent } from './simple-search/simple-search.component'
-import { FullTextComponent } from './full-text/full-text.component'
+import { SF1DetailComponent } from './sf1-detail/sf1-detail.component'
 
 @NgModule({
-  imports:      [ CommonModule, SF1RoutingModule ],
-  declarations: [ SearchResultComponent, ComplexSearchComponent, SimpleSearchComponent, FullTextComponent ],
-  providers:    [ SF1Service ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    CalendarModule,
+    SF1RoutingModule
+  ],
+  declarations: [
+    SimpleSearchComponent,
+    ComplexSearchComponent,
+    SF1ListComponent,
+    SF1DetailComponent
+  ],
+  providers: [SF1Service]
 })
 
-export class SF1Module {}
+export class SF1Module { }

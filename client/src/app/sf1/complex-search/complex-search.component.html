@@ -80,7 +80,7 @@
                       <option>OR</option>
                       <option>NOT</option>
                     </select>
-                    
+
                     <input type="text" class="form-control ui-text">
                     <i class="iconfont iconfont-plus" (click)="k_item.newItem()" >&#xe668;</i>
 
@@ -107,9 +107,9 @@
                   <span>某个时间段</span>
                   <i class="iconfont">&#xe637;</i>
                 </a>
-                <input type="text" class="form-control ui-text fn-hide" name="ad">
+                <p-calendar [(ngModel)]="date1" dateFormat="yymmdd" [locale]="cn"></p-calendar>
                 <span class="to fn-hide">to</span>
-                <input type="text" class="form-control ui-text" name="ad">
+                <p-calendar [(ngModel)]="date2" dateFormat="yymmdd" [locale]="cn"></p-calendar>
                 <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
               </div>
             </div>
