@@ -1,3 +1,35 @@
-<p>
-  test works!
-</p>
+<style>
+  #pu_test input{
+    width: 512px;
+    margin: 8px;
+    color: black;
+  }
+
+  #pu_test label{
+    width: 128px;
+    text-align: left;
+  }
+
+  #pu_test textarea{
+    width: 512px;
+    margin: 8px;
+    resize: none;
+    vertical-align: top;
+    color: black;
+  }
+</style>
+
+<div style="margin-top:50px" id="pu_test">
+  <form action="https://open.cnipr.com/cnipr-api/rs/api/search/sf1/ABEC0BD17688BC6F4DEDA73E07B2B18B" method="post" target="_blank">
+    <label for="openid">openid:</label><input type="text" name="openid" value="e3504f932dd828f21fc394a2bb011ff4"/><br/>
+    <label for="access_token">access_token:</label><input type="text" name="access_token" value="a99b1867e6ac0e72893bb4c35fcf5a2f"/><br/>
+    <label for="dbs">dbs:</label><input type="text" name="dbs" value="FMZL,FMSQ"/><br/>
+    <label for="option">option:</label><input type="text" name="option" value="2"/><br/>
+    <label for="from">from:</label><input type="text" name="from" value="0"/><br/>
+    <label for="to">to:</label><input type="text" name="to" value="5"/><br/>
+    <label for="displayCols">displayCols:</label><input type="text" name="displayCols" value="Title,Abs,AgentName"/><br/>
+    <label for="order">order:</label><textarea name="order" row="16" ></textarea><br/>
+    <label for="exp">exp:</label><textarea name="exp" row="16" >地址=(浙江省湖州 or 浙江省长兴) and 公开（公告）日=(20120901 to 20121002)</textarea><br/>
+    <button type="submit" class="btn btn-default">测试</button>
+  </form>
+</div>
