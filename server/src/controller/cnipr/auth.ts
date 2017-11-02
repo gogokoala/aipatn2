@@ -117,9 +117,10 @@ class OAuth2Instance {
         const redirectUri = encodeURI(this.options.redirectUri)
         const refreshToken = this.options.refreshToken
         const state = this.csfrState
+        const url = 'https://open.cnipr.com/oauth2/access_token'
 
         let res = await Axios.get(
-            'https://open.cnipr.com/oauth2/access_token',
+            url,
             {
                 params: {
                     client_id: clientId,
