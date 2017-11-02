@@ -6,11 +6,11 @@ export interface sf1Data {
     appDate: string
     pubDate: string
     title: string
-    ipc: string
-    applicantName: string
-    inventroName: string
+    ipc: Array<string>
+    applicantName: Array<string>
+    inventroName: Array<string>
     priority: string
-    agencyName: string
+    agencyName: Array<string>
     agentName: string
     addrProvince: string
     addrCity: string
@@ -29,9 +29,9 @@ export interface sf1Data {
     proCode: string
     appCoun: string
     gazettePath: string
-    gazettePage: number
-    gazetteCount: number
-    statusCode: number
+    gazettePage: string
+    gazetteCount: string
+    statusCode: string
     familyNo: string
 }
 
@@ -41,11 +41,11 @@ export interface sectionInfo {
 }
 
 export interface sf1Response {
-    status: number
+    status: string
     message: string
     total: number
     from: number
     to: number
-    results: sf1Data[]
-    sectionInfos: sectionInfo[]
+    results: Array<sf1Data>
+    sectionInfos: Array<sectionInfo>
 }

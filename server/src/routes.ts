@@ -13,15 +13,15 @@ import { search as sf1 } from './controller/cnipr/sf1'
  */
 export const router = new Router()
 
-router.get('/public/ping', ping)
+router.get('/ping', ping)
 
-router.get('/public/sid', getSessionId)
+router.get('/sid', getSessionId)
 
-router.get('/public/vcode', getVerificationCode)
+router.get('/vcode', getVerificationCode)
 
-router.post('/public/register', register)
+router.post('/register', register)
 
-router.post('/public/login', login)
+router.post('/login', login)
 
-router.post('/public/sf1', sf1)
+router.post('/sf1', sf1)
 
