@@ -13,7 +13,7 @@
     <div class="col-xs-10 fr-right pat-list">
       <div class="u-toolbar">
         <div class="searchform">
-          <form action="/search" method="post" class="">
+            <form action="/search" method="post" class="">
             <label class="control-label u-label">检索条件</label>
             <input type="hidden" value="35184372088831" name="sc">
             <input type="hidden" value="type:(cn_in OR cn_gp) AND pa_ana:(中国航空工业集团公司西安飞机设计研究所)" name="fq">
@@ -23,7 +23,7 @@
             <div class="m-search">
               <div class="search-div">
                 <div class="search-div-in">
-                  <input type="text" class="u-search" value="(飞机) AND ab:(机翼支撑) " name="q" autocomplete="off" placeholder="你想找啥？">
+                  <input type="text" class="u-search" value="{{searchKeyword | async }}" name="q" autocomplete="off" placeholder="你想找啥？">
                   <i class="iconfont clean_icon">&#xe65d;</i>
                 </div>
               </div>

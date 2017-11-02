@@ -23,9 +23,11 @@
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
     "debug": "^3.1.0",
+    "font-awesome": "^4.7.0",
     "knex": "^0.13.0",
     "moment": "^2.18.1",
     "mysql": "^2.15.0",
+    "primeng": "^4.3.0",
     "rxjs": "^5.4.2",
     "uuid": "^3.1.0",
     "zone.js": "^0.8.14"

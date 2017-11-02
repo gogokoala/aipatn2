@@ -9,7 +9,7 @@
       <p>大数据智彗时代 我们与您同行</p>
     </div>
     <div class="m-search-input">
-      <input class="m-search-input-input placeholder" type="text" name="q" placeholder="请输入检索关键字" autofocus="">
+      <input type="text" required [(ngModel)]="searchKeyword" class="m-search-input-input placeholder" name="q" placeholder="请输入检索关键字" autofocus="">
       <i class="iconfont clean_icon">&#xe65d;</i>
     </div>
     <button (click)="doSearch()" class="iconfont m-search-submit">&#xe60e;</button>

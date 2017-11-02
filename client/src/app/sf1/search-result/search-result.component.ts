@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-search-result',
@@ -25,9 +28,13 @@ export class SearchResultComponent implements OnInit {
     {id: 15, name: '代理人'},
   ]
 
-  constructor() { }
+  searchKeyword: Observable<string>
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.searchKeyword = this.route.queryParamMap.map(params => params.get('kw') || 'None');
   }
 
 }

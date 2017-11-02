@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
+import { CalendarModule } from 'primeng/primeng'
 
 import { SF1Service } from './sf1.service'
 import { SF1RoutingModule } from './sf1-routing.module'
@@ -10,9 +12,19 @@ import { SimpleSearchComponent } from './simple-search/simple-search.component'
 import { FullTextComponent } from './full-text/full-text.component'
 
 @NgModule({
-  imports:      [ CommonModule, SF1RoutingModule ],
-  declarations: [ SearchResultComponent, ComplexSearchComponent, SimpleSearchComponent, FullTextComponent ],
-  providers:    [ SF1Service ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    CalendarModule,
+    SF1RoutingModule
+  ],
+  declarations: [
+    SearchResultComponent,
+    ComplexSearchComponent,
+    SimpleSearchComponent,
+    FullTextComponent
+  ],
+  providers: [SF1Service]
 })
 
-export class SF1Module {}
+export class SF1Module { }

@@ -1,20 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 /* App Component */
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppComponent } from './app.component'
+import { HeaderComponent } from './header/header.component'
+import { FooterComponent } from './footer/footer.component'
 
 /* Routing Module */
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'
 
 /* Feature Modules */
 import { SF1Module } from './sf1/sf1.module'
 
 /* Service */
-import { UserService } from './services/user.service';
-import { TestComponent } from './test/test.component';
+import { UserService } from './services/user.service'
+import { TestComponent } from './test/test.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TestComponent } from './test/test.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SF1Module
   ],
