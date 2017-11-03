@@ -52,10 +52,12 @@ export class ComplexSearchCondition {
 
     for (let i = 0; i < this.name.length; i++) {
       if (i > 0) {
-        r += ' and '
+        r += ' or '
       }
       r += (this.name[i] + '=(' + v + ')')
     }
+
+    if (r!="") r="("+r+")"
 
     return r
   }
