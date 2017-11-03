@@ -47,8 +47,7 @@
                   <span>例如：输入的检索的关键词组中间不能包含以下特殊字符 “；”， “——”，“,”,“()”。</span>
                 </p>
               </div>
-              <textarea class="form-control" rows="5" id="textArea" name="q" readonly="readonly" style="margin-bottom: 5px;">
-                {{valToString()}}
+              <textarea class="form-control" rows="5" id="textArea" name="q" readonly="readonly" style="margin-bottom: 5px;" [ngModel]="exp.getValue()">
               </textarea>
               <input type="hidden" name="sc" value="35184372088831">
               <div>
@@ -69,26 +68,30 @@
             <span class="panel-title">关键词</span>
           </div>
           <div class="panel-body">
-            <div *ngFor="let k_item of key_group" class="form-group">
-              <label class="col-lg-2 control-label">{{k_item.title}}</label>
-              <div class="col-lg-10">
-                <div>
-                  <div *ngFor="let v of k_item.items; let i=index">
 
-                    <select class="ui-select" (ngModel)="v.op">
+            <div *ngFor="let item of exp.key_group" class="form-group">
+              <label class="col-lg-2 control-label">{{item.title}}</label>
+              <div class="col-lg-10">
+                <div class="row">
+                  <div *ngFor="let v of item.items; let vi=index" class="col-lg-12">
+
+                    <select class="ui-select" [(ngModel)]="v.op">
                       <option>AND</option>
                       <option>OR</option>
-                      <option>NOT</option>
+                      <option *ngIf="vi>0">NOT</option>
                     </select>
 
-                    <input type="text" class="form-control ui-text">
-                    <i class="iconfont iconfont-plus" (click)="k_item.newItem()" >&#xe668;</i>
+                    <input type="text" class="form-control ui-text" [(ngModel)]="v.value" />
+
+                    <i *ngIf="vi==0" class="fa fa-plus-circle fa-2x iconfont-plus" (click)="item.newItem()">&nbsp;</i>
+                    <i *ngIf="vi>0" class="fa fa-minus-circle fa-2x iconfont-plus" (click)="item.removeItemAt(vi)">&nbsp;</i>
 
                   </div>
                 </div>
 
               </div>
             </div>
+
           </div>
         </div>
         <div class="panel panel-primary">
@@ -120,16 +123,27 @@
             <span class="panel-title">号码</span>
           </div>
           <div class="panel-body">
-            <div *ngFor="let c_item of code_group" class="form-group">
-              <label class="col-lg-2 control-label">{{c_item.title}}</label>
+            <div *ngFor="let item of exp.code_group" class="form-group">
+              <label class="col-lg-2 control-label">{{item.title}}</label>
               <div class="col-lg-10">
-                <a class="ui-select">
-                  <span>OR</span>
-                  <i class="iconfont">&#xe637;</i>
-                </a>
-                <input type="text" class="form-control ui-text" name="all">
-                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+                <div class="row">
+                  <div *ngFor="let v of item.items; let vi=index" class="col-lg-12">
+
+                    <select class="ui-select" [(ngModel)]="v.op">
+                      <option>AND</option>
+                      <option>OR</option>
+                      <option *ngIf="vi>0">NOT</option>
+                    </select>
+
+                    <input type="text" class="form-control ui-text" [(ngModel)]="v.value" />
+
+                    <i *ngIf="vi==0" class="fa fa-plus-circle fa-2x iconfont-plus" (click)="item.newItem()">&nbsp;</i>
+                    <i *ngIf="vi>0" class="fa fa-minus-circle fa-2x iconfont-plus" (click)="item.removeItemAt(vi)">&nbsp;</i>
+
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -138,15 +152,26 @@
             <span class="panel-title">分类号</span>
           </div>
           <div class="panel-body">
-            <div *ngFor="let t_item of type_group" class="form-group">
-              <label class="col-lg-2 control-label">{{t_item.title}}</label>
+            <div *ngFor="let item of exp.type_group" class="form-group">
+              <label class="col-lg-2 control-label">{{item.title}}</label>
               <div class="col-lg-10">
-                <a class="ui-select">
-                  <span>OR</span>
-                  <i class="iconfont">&#xe637;</i>
-                </a>
-                <input type="text" class="form-control ui-text" name="all">
-                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+                <div class="row">
+                  <div *ngFor="let v of item.items; let vi=index" class="col-lg-12">
+
+                    <select class="ui-select" [(ngModel)]="v.op">
+                      <option>AND</option>
+                      <option>OR</option>
+                      <option *ngIf="vi>0">NOT</option>
+                    </select>
+
+                    <input type="text" class="form-control ui-text" [(ngModel)]="v.value" />
+
+                    <i *ngIf="vi==0" class="fa fa-plus-circle fa-2x iconfont-plus" (click)="item.newItem()">&nbsp;</i>
+                    <i *ngIf="vi>0" class="fa fa-minus-circle fa-2x iconfont-plus" (click)="item.removeItemAt(vi)">&nbsp;</i>
+
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -156,21 +181,31 @@
             <span class="panel-title">名称地址</span>
           </div>
           <div class="panel-body">
-            <div *ngFor="let na_item of name_group" class="form-group">
-              <label class="col-lg-2 control-label">{{na_item.title}}</label>
+            <div *ngFor="let item of exp.name_group" class="form-group">
+              <label class="col-lg-2 control-label">{{item.title}}</label>
               <div class="col-lg-10">
-                <a class="ui-select">
-                  <span>OR</span>
-                  <i class="iconfont">&#xe637;</i>
-                </a>
-                <input type="text" class="form-control ui-text" name="all">
-                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+                <div class="row">
+                  <div *ngFor="let v of item.items; let vi=index" class="col-lg-12">
+
+                    <select class="ui-select" [(ngModel)]="v.op">
+                      <option>AND</option>
+                      <option>OR</option>
+                      <option *ngIf="vi>0">NOT</option>
+                    </select>
+
+                    <input type="text" class="form-control ui-text" [(ngModel)]="v.value" />
+
+                    <i *ngIf="vi==0" class="fa fa-plus-circle fa-2x iconfont-plus" (click)="item.newItem()">&nbsp;</i>
+                    <i *ngIf="vi>0" class="fa fa-minus-circle fa-2x iconfont-plus" (click)="item.removeItemAt(vi)">&nbsp;</i>
+
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
