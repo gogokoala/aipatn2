@@ -101,14 +101,14 @@ export class ComplexSearchComponent implements OnInit {
 
     const t: any[] = [
       { id: 1, name: ['分类号'], title: '国际分类号（IPC）' },
-      { id: 2, name: [], title: '外观分类(Locarno)' },
+      // { id: 2, name: [], title: '外观分类(Locarno)' },
     ];
     this.exp.initTypeGroup(t);
 
     const n: any[] = [
       { id: 1, name: ['申请（专利权）人'], title: '申请（专利权）人' },
-      { id: 2, name: [], title: '当前专利权人' },
-      { id: 3, name: [], title: '股票代码' },
+      // { id: 2, name: [], title: '当前专利权人' },
+      // { id: 3, name: [], title: '股票代码' },
       { id: 4, name: ['发明（设计）人'], title: '发明人' },
       { id: 5, name: ['代理人'], title: '代理人' },
       { id: 6, name: ['专利代理机构'], title: '代理机构' },
