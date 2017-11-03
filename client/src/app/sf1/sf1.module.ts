@@ -6,10 +6,10 @@ import { CalendarModule } from 'primeng/primeng'
 import { SF1Service } from './sf1.service'
 import { SF1RoutingModule } from './sf1-routing.module'
 
-import { SearchResultComponent } from './search-result/search-result.component'
+import { SF1ListComponent } from './sf1-list/sf1-list.component'
 import { ComplexSearchComponent } from './complex-search/complex-search.component'
 import { SimpleSearchComponent } from './simple-search/simple-search.component'
-import { FullTextComponent } from './full-text/full-text.component'
+import { SF1DetailComponent } from './sf1-detail/sf1-detail.component'
 
 @NgModule({
   imports: [
@@ -19,10 +19,10 @@ import { FullTextComponent } from './full-text/full-text.component'
     SF1RoutingModule
   ],
   declarations: [
-    SearchResultComponent,
-    ComplexSearchComponent,
     SimpleSearchComponent,
-    FullTextComponent
+    ComplexSearchComponent,
+    SF1ListComponent,
+    SF1DetailComponent
   ],
   providers: [SF1Service]
 })

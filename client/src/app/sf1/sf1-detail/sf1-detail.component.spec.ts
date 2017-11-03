@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FullTextComponent } from './full-text.component';
+import { SF1DetailComponent } from './sf1-detail.component';
 
-describe('FullTextComponent', () => {
-  let component: FullTextComponent;
-  let fixture: ComponentFixture<FullTextComponent>;
+describe('SF1DetailComponent', () => {
+  let component: SF1DetailComponent;
+  let fixture: ComponentFixture<SF1DetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FullTextComponent ]
+      declarations: [ SF1DetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FullTextComponent);
+    fixture = TestBed.createComponent(SF1DetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

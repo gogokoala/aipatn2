@@ -4,11 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.css']
+  selector: 'app-sf1-list',
+  templateUrl: './sf1-list.component.html',
+  styleUrls: ['./sf1-list.component.css']
 })
-export class SearchResultComponent implements OnInit {
+export class SF1ListComponent implements OnInit {
 
   filter_items: any[] = [
     {id: 1, name: '国家'},
