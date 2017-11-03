@@ -72,50 +72,47 @@ export class ComplexSearchComponent implements OnInit {
     },
   ];
 
-  exp=new ComplexSearchExp();
+  exp = new ComplexSearchExp();
 
   date_group: any[] = [
     { id: 1, name: '', title: '申请日'},
     { id: 2, name: '', title: '公开（公告）日'},
     { id: 3, name: '', title: '授权日'},
   ];
-  
-  
-  
 
   constructor(private router: Router) {
-    let k: any[] = [
-      { id: 1, name: ["名称","摘要","权利要求书","说明书"], title: '所有字段' },
-      { id: 2, name: ["名称","摘要"], title: '专利名称/摘要' },
-      { id: 3, name: ["名称","摘要","权利要求书"], title: '专利名称/摘要/权利要求'},
-      { id: 4, name: ["名称"], title: '专利名称'},
-      { id: 5, name: ["摘要"], title: '摘要'},
-      { id: 6, name: ["权利要求书"], title: '权利要求'},
-      { id: 8, name: ["说明书"], title: '说明书'},
+    const k: any[] = [
+      { id: 1, name: ['名称', '摘要', '权利要求书', '说明书'], title: '所有字段' },
+      { id: 2, name: ['名称', '摘要'], title: '专利名称/摘要' },
+      { id: 3, name: ['名称', '摘要', '权利要求书'], title: '专利名称/摘要/权利要求'},
+      { id: 4, name: ['名称'], title: '专利名称'},
+      { id: 5, name: ['摘要'], title: '摘要'},
+      { id: 6, name: ['权利要求书'], title: '权利要求'},
+      { id: 8, name: ['说明书'], title: '说明书'},
     ];
     this.exp.initKeyGroup(k);
 
-    let c: any[] = [
-      { id: 1, name: ["申请号"], title: '申请号' },
-      { id: 2, name: ["公开（公告）号"], title: '公开（公告）号' },
-      { id: 3, name: ["优先权"], title: '优先权号' },
+    const c: any[] = [
+      { id: 1, name: ['申请号'], title: '申请号' },
+      { id: 2, name: ['公开（公告）号'], title: '公开（公告）号' },
+      { id: 3, name: ['优先权'], title: '优先权号' },
     ];
     this.exp.initCodeGroup(c);
 
-    let t: any[] = [
-      { id: 1, name: ["分类号"], title: '国际分类号（IPC）' },
+    const t: any[] = [
+      { id: 1, name: ['分类号'], title: '国际分类号（IPC）' },
       { id: 2, name: [], title: '外观分类(Locarno)' },
     ];
     this.exp.initTypeGroup(t);
 
-    let n: any[] = [
-      { id: 1, name: ["申请（专利权）人"], title: '申请（专利权）人' },
+    const n: any[] = [
+      { id: 1, name: ['申请（专利权）人'], title: '申请（专利权）人' },
       { id: 2, name: [], title: '当前专利权人' },
       { id: 3, name: [], title: '股票代码' },
-      { id: 4, name: ["发明（设计）人"], title: '发明人' },
-      { id: 5, name: ["代理人"], title: '代理人' },
-      { id: 6, name: ["专利代理机构"], title: '代理机构' },
-      { id: 8, name: ["地址"], title: '申请人地址' },
+      { id: 4, name: ['发明（设计）人'], title: '发明人' },
+      { id: 5, name: ['代理人'], title: '代理人' },
+      { id: 6, name: ['专利代理机构'], title: '代理机构' },
+      { id: 8, name: ['地址'], title: '申请人地址' },
     ];
     this.exp.initNameGroup(n);
   }
@@ -130,7 +127,7 @@ export class ComplexSearchComponent implements OnInit {
   }
 
   // valToString(){
-  //   let v="";
+  //   let v='';
   //   v = JSON.stringify(this.key_group);
   //   return v;
   // }
