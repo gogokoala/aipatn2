@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ComplexSearchCondition, ComplexSearchConditionItem, ComplexSearchExp } from './complex-search.service';
+import { SF1SearchCondition, SF1SearchConditionItem, SF1SearchExp } from '../sf1-search.service';
+//import { ComplexSearchCondition, ComplexSearchConditionItem, ComplexSearchExp } from './complex-search.service';
 
 @Component({
   selector: 'app-complex-search',
@@ -11,8 +12,6 @@ import { ComplexSearchCondition, ComplexSearchConditionItem, ComplexSearchExp } 
 
 export class ComplexSearchComponent implements OnInit {
 
-  date1: Date
-  date2: Date
   result_num = 0;
 
   cn: any = {
@@ -72,15 +71,10 @@ export class ComplexSearchComponent implements OnInit {
     },
   ];
 
-  exp = new ComplexSearchExp();
-
-  date_group: any[] = [
-    { id: 1, name: '', title: '申请日'},
-    { id: 2, name: '', title: '公开（公告）日'},
-    { id: 3, name: '', title: '授权日'},
-  ];
+  exp = new SF1SearchExp();
 
   constructor(private router: Router) {
+    
     const k: any[] = [
       { id: 1, name: ['名称', '摘要', '权利要求书', '说明书'], title: '所有字段' },
       { id: 2, name: ['名称', '摘要'], title: '专利名称/摘要' },
@@ -115,6 +109,13 @@ export class ComplexSearchComponent implements OnInit {
       { id: 8, name: ['地址'], title: '申请人地址' },
     ];
     this.exp.initNameGroup(n);
+
+    const d: any[] = [
+      { id: 1, name: ['申请日'], title: '申请日'},
+      { id: 2, name: ['公开（公告）日'], title: '公开（公告）日'},
+      { id: 3, name: ['优先权日'], title: '授权日'},
+    ];
+    this.exp.initDateGroup(d);
   }
 
   ngOnInit() {

@@ -99,23 +99,40 @@
             <span class="panel-title">日期</span>
           </div>
           <div class="panel-body">
-            <div *ngFor="let d_item of date_group" class="form-group">
-              <label class="col-lg-2 control-label">{{d_item.title}}</label>
+            
+            <div *ngFor="let item of exp.date_group" class="form-group">
+              <label class="col-lg-2 control-label">{{item.title}}</label>
               <div class="col-lg-10 between">
-                <a class="ui-select">
-                  <span>OR</span>
-                  <i class="iconfont">&#xe637;</i>
-                </a>
-                <a class="ui-select ui-date-select">
-                  <span>某个时间段</span>
-                  <i class="iconfont">&#xe637;</i>
-                </a>
-                <p-calendar [(ngModel)]="date1" dateFormat="yymmdd" [locale]="cn"></p-calendar>
-                <span class="to fn-hide">to</span>
-                <p-calendar [(ngModel)]="date2" dateFormat="yymmdd" [locale]="cn"></p-calendar>
-                <i class="iconfont iconfont-plus" data-name="apd">&#xe668;</i>
+                <div class="row">
+                  <div *ngFor="let v of item.items; let vi=index" class="col-lg-12">
+
+                    <select class="ui-select" [(ngModel)]="v.op">
+                      <option>AND</option>
+                      <option>OR</option>
+                      <option *ngIf="vi>0">NOT</option>
+                    </select>
+
+                    <select class="ui-select ui-date-select" [(ngModel)]="v.mode">
+                      <option value="0">某个时间段</option>
+                      <option value="1">某个时间之前</option>
+                      <option value="2">某个时间之后</option>
+                      <option value="3">某个时间点</option>
+                    </select>
+
+                    <p-calendar *ngIf="v.mode!=1" [(ngModel)]="v.from" dateFormat="yymmdd" [locale]="cn"></p-calendar>
+                    <span *ngIf="v.mode==0" class="to">to</span>
+                    <p-calendar *ngIf="v.mode&lt;2" [(ngModel)]="v.to" dateFormat="yymmdd" [locale]="cn"></p-calendar>
+
+
+                    <i *ngIf="vi==0" class="fa fa-plus-circle fa-2x iconfont-plus" (click)="item.newItem()">&nbsp;</i>
+                    <i *ngIf="vi>0" class="fa fa-minus-circle fa-2x iconfont-plus" (click)="item.removeItemAt(vi)">&nbsp;</i>
+
+                  </div>
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
         <div class="panel panel-primary">
