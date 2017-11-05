@@ -1,4 +1,3 @@
-
 import * as moment from 'moment'
 
 export class SF1SearchConditionItem {
@@ -65,64 +64,66 @@ export class SF1SearchCondition {
       r += (this.name[i] + '=(' + v + ')')
     }
 
-    if (r!='') r='('+r+')'
+    if (r !== '') {
+      r = '(' + r + ')'
+    }
 
     return r
   }
 
-  getDateValue(){
-    let v=''
+  getDateValue() {
+    let v = ''
 
-    for (let i=0; i<this.items.length;i++){
+    for (let i = 0; i < this.items.length; i++) {
       const it = this.items[i]
-      let f=it.from;
-      let t=it.to;
+      let f = it.from;
+      let t = it.to;
 
-      let fs=''
-      let ts=''
+      let fs = ''
+      let ts = ''
 
-      switch(it.mode){
+      switch (it.mode) {
         case '1':
-          if (t!=null) {
-            f=new Date('1970-01-01');
+          if (t !== null) {
+            f = new Date('1970-01-01');
           }
           break;
         case '2':
-          if (f!=null){
-            t=new Date();
+          if (f !== null) {
+            t = new Date();
           }
           break;
         case '3':
-        if (f!=null){
-          t=f;
-        }
-        break;
+          if (f !== null) {
+            t = f;
+          }
+          break;
       }
 
-      if (f!=null && t!=null){
-        fs=moment(f).format("YYYYMMDD");
-        ts=moment(t).format("YYYYMMDD");
-        
-        let r='';
+      if (f !== null && t !== null) {
+        fs = moment(f).format('YYYYMMDD');
+        ts = moment(t).format('YYYYMMDD');
 
-        for (let j=0;j<this.name.length;j++){
-          if (r!='') {
-            r+=' OR '
+        let r = '';
+
+        for (let j = 0; j < this.name.length; j++) {
+          if (r !== '') {
+            r += ' OR '
           }
-          r+=(this.name[j]+'=('+fs+' to '+ts+')')
+          r += (this.name[j] + '=(' + fs + ' to ' + ts + ')')
         }
 
-        if (r!=''){
-          if (v!=''){
-            v+=(' '+it.op+' ')
+        if (r !== '') {
+          if (v !== '') {
+            v += (' ' + it.op + ' ')
           }
-          v+=r
+          v += r
         }
       }
     }
 
-    if (v!=''){
-      v='('+v+')'
+    if (v !== '') {
+      v = '(' + v + ')'
     }
     return v;
   }
@@ -139,7 +140,7 @@ export class SF1SearchExp {
   constructor() {
   }
 
-  private initGroup(data: any[], group: Array<SF1SearchCondition>){
+  private initGroup(data: any[], group: Array<SF1SearchCondition>) {
     for (let i = 0; i < data.length; i++) {
       const cond = new SF1SearchCondition(data[i].id, data[i].name, data[i].title)
       group.push(cond)
@@ -165,7 +166,7 @@ export class SF1SearchExp {
   initDateGroup(data: any[]) {
     this.initGroup(data, this.date_group)
   }
-  
+
   private getValueByGroup(group: Array<SF1SearchCondition>) {
     let v = ''
 
@@ -199,8 +200,8 @@ export class SF1SearchExp {
   }
 
   getValue() {
-    //let j=JSON.stringify(this.date_group);
-    
+    // let j=JSON.stringify(this.date_group);
+
     const k = this.getValueByGroup(this.key_group)
     const c = this.getValueByGroup(this.code_group)
     const t = this.getValueByGroup(this.type_group)
