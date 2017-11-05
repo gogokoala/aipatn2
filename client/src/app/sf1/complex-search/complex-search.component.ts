@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SF1SearchCondition, SF1SearchConditionItem, SF1SearchExp } from '../sf1-search.service';
-//import { ComplexSearchCondition, ComplexSearchConditionItem, ComplexSearchExp } from './complex-search.service';
 
 @Component({
   selector: 'app-complex-search',
@@ -74,15 +73,15 @@ export class ComplexSearchComponent implements OnInit {
   exp = new SF1SearchExp();
 
   constructor(private router: Router) {
-    
+
     const k: any[] = [
       { id: 1, name: ['名称', '摘要', '权利要求书', '说明书'], title: '所有字段' },
       { id: 2, name: ['名称', '摘要'], title: '专利名称/摘要' },
-      { id: 3, name: ['名称', '摘要', '权利要求书'], title: '专利名称/摘要/权利要求'},
-      { id: 4, name: ['名称'], title: '专利名称'},
-      { id: 5, name: ['摘要'], title: '摘要'},
-      { id: 6, name: ['权利要求书'], title: '权利要求'},
-      { id: 8, name: ['说明书'], title: '说明书'},
+      { id: 3, name: ['名称', '摘要', '权利要求书'], title: '专利名称/摘要/权利要求' },
+      { id: 4, name: ['名称'], title: '专利名称' },
+      { id: 5, name: ['摘要'], title: '摘要' },
+      { id: 6, name: ['权利要求书'], title: '权利要求' },
+      { id: 8, name: ['说明书'], title: '说明书' },
     ];
     this.exp.initKeyGroup(k);
 
@@ -111,9 +110,9 @@ export class ComplexSearchComponent implements OnInit {
     this.exp.initNameGroup(n);
 
     const d: any[] = [
-      { id: 1, name: ['申请日'], title: '申请日'},
-      { id: 2, name: ['公开（公告）日'], title: '公开（公告）日'},
-      { id: 3, name: ['优先权日'], title: '授权日'},
+      { id: 1, name: ['申请日'], title: '申请日' },
+      { id: 2, name: ['公开（公告）日'], title: '公开（公告）日' },
+      { id: 3, name: ['优先权日'], title: '授权日' },
     ];
     this.exp.initDateGroup(d);
   }
