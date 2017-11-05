@@ -57,6 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# git credentials
+.git-credentials
+
 # local project file
 dist/
 config/
