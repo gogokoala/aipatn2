@@ -24,3 +24,7 @@ todo:
 1.日期输入框的宽度，在不同的模式下，需要进行调整。
 
 ### 2017-11-06 ###
+puyd:
+1.ComplexSearch查询条件全局存储
+2.实现buildKeySearch和buildCodeSearch
+3.实现getKeyWords
