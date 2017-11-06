@@ -72,63 +72,53 @@
             </ul>
           </div>
         </div>
-        <div class="list-group-item pat-item">
+        <div *ngFor="let item of sf1.results; let idx=index" class="list-group-item pat-item">
           <div class="pat-header">
-            <span class="num">1</span>[中国发明]
-            <a href="/patent/view.html?patid=CN201710307480.X&amp;sc=35184372088831&amp;q=(%E9%A3%9E%E6%9C%BA)%20AND%20ab%3A(%E6%9C%BA%E7%BF%BC%E6%94%AF%E6%92%91)%20&amp;fq=type%3A(cn_in%20OR%20cn_gp)%20AND%20pa_ana%3A(%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%A9%BA%E5%B7%A5%E4%B8%9A%E9%9B%86%E5%9B%A2%E5%85%AC%E5%8F%B8%E8%A5%BF%E5%AE%89%E9%A3%9E%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%A0%94%E7%A9%B6%E6%89%80)&amp;sort=&amp;sortField=&amp;page=1&amp;rows=10"
-              class="c-blue" target="_blank">CN201710307480.X</a>
-            <a href="/patent/view.html?patid=CN201710307480.X&amp;sc=35184372088831&amp;q=(%E9%A3%9E%E6%9C%BA)%20AND%20ab%3A(%E6%9C%BA%E7%BF%BC%E6%94%AF%E6%92%91)%20&amp;fq=type%3A(cn_in%20OR%20cn_gp)%20AND%20pa_ana%3A(%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%A9%BA%E5%B7%A5%E4%B8%9A%E9%9B%86%E5%9B%A2%E5%85%AC%E5%8F%B8%E8%A5%BF%E5%AE%89%E9%A3%9E%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%A0%94%E7%A9%B6%E6%89%80)&amp;sort=&amp;sortField=&amp;page=1&amp;rows=10"
-              target="_blank" class="c-blue title">一种大展弦比无人机支撑测量装置系统</a>
-            <span class="label label-warning">审中-公开发明</span>
+            <span class="num">{{idx + 1}} </span>[{{getDbName(item.dbName)}}]
+            <a href="#"
+              class="c-blue" target="_blank">{{item.appNumber}}</a>
+            <a href=""
+              target="_blank" class="c-blue title">{{item.title}}</a>
+            <span class="label label-warning">{{item.lprs}}</span>
             <div class="translatetitle"></div>
           </div>
           <div class="container-fluid pat-body">
             <div class="row">
               <div class="col-xs-2 pat-img">
-                <img data-type="cn_in" data-an="CN201710307480.X" data-ti="一种大展弦比无人机支撑测量装置系统" data-url="http://cube.patexplorer.com/img/4c3eee7bc029ca0b52035ae3a32e763d/120/180"
-                  class="lazyload" style="width:169px;height:165px;border:1px solid #ccc" src="http://cube.patexplorer.com/img/4c3eee7bc029ca0b52035ae3a32e763d/120/180">
+                <img class="lazyload" style="width:169px;height:165px;border:1px solid #ccc" src="{{item.draws}}">
               </div>
               <div class="col-xs-10 pat-content container-fluid">
                 <div class="row">
                   <div class="col-xs-4">
                     <p><strong>公开（公告）号：</strong>
-                      <a href="/patent/view.html?patid=CN201710307480.X&amp;sc=35184372088831&amp;q=(%E9%A3%9E%E6%9C%BA)%20AND%20ab%3A(%E6%9C%BA%E7%BF%BC%E6%94%AF%E6%92%91)%20&amp;fq=type%3A(cn_in%20OR%20cn_gp)%20AND%20pa_ana%3A(%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%A9%BA%E5%B7%A5%E4%B8%9A%E9%9B%86%E5%9B%A2%E5%85%AC%E5%8F%B8%E8%A5%BF%E5%AE%89%E9%A3%9E%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%A0%94%E7%A9%B6%E6%89%80)&amp;sort=&amp;sortField=&amp;page=1&amp;rows=10"
-                        class="c-blue" target="_blank">
-                        <!--CN107082122A-->CN107082122A</a>
+                      <a href="#" class="c-blue" target="_blank">{{item.pubNumber}}</a>
                     </p>
                   </div>
                   <div class="col-xs-8">
-                    <p><strong>申请（专利权）人：</strong><a href="/results/s.html?q=pa:(%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%A9%BA%E5%B7%A5%E4%B8%9A%E9%9B%86%E5%9B%A2%E5%85%AC%E5%8F%B8%E8%A5%BF%E5%AE%89%E9%A3%9E%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%A0%94%E7%A9%B6%E6%89%80)"
-                        target="_blank" class="">中国航空工业集团公司西安<span class="c-highligth-default">飞</span><span class="c-highligth-default">机</span>设计研究所</a></p>
+                    <p><strong>申请（专利权）人：</strong><a href="#" target="_blank" class="">{{item.applicantName}}</a></p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-4">
                     <p><strong>申请日：</strong>
-                      <a href="/results/l.html?q=ad:(20170504)" target="_blank">
-                        <!--20170504-->20170504</a>
+                      <a href="#" target="_blank">{{item.appDate}}</a>
                     </p>
 
                   </div>
                   <div class="col-xs-8">
-                    <p><strong>主分类号：</strong><a href="/results/l.html?q=ic1:()" target="_blank"></a></p>
+                    <p><strong>主分类号：</strong><a href="#" target="_blank">{{item.mainIpc}}</a></p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-4">
-                    <p><strong>公开（公告）日：</strong><a href="/results/l.html?q=pd:(20170822)" target="_blank">20170822</a></p>
+                    <p><strong>公开（公告）日：</strong><a href="#" target="_blank">{{item.pubDate}}</a></p>
                   </div>
                   <div class="col-xs-8">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12">
-                    <strong>摘要：</strong>
-                    <span class="content">本发明提供一种大展弦比无人机支撑测量装置系统，包括<span class="c-highligth-default">机</span>
-                    <span class="c-highligth-default">翼</span>
-                    <span class="c-highligth-default">支</span><span class="c-highligth-default">撑</span>测量装置(1)和机身支撑装置(2)，
-                    <span class="c-highligth-default">机</span>
-                    <span class="c-highligth-default">翼</span><span class="c-highligth-default">支</span><span class="c-highligth-default">撑</span>测量装置(1)中的第一底座为长方体盒状构件，该盒状第一底座的一端设置有第一车轮，另一端则套装有升降装置，该升降装置上还设置有测量高度变化的测量装置，同时该升降装置通过机翼蒙皮夹具设置有盒盖的一端将其扣合于盒状第一底座中，机翼蒙皮夹具另一端为扣合端，用于扣合无人机机翼；机身支撑装置(2)中的第二底座为长方体盒状构件，盒状第二底座的一端设置有第二车轮，另一端则安装有机身夹具。本发明所提供的装置系统，用于支撑无人机的机翼与机身，避免机翼长时间大挠度变形造成机构破坏，同时也可测量机翼的变形量。</span>
+                    <strong>摘要：</strong>{{item.abs}}
                   </div>
                 </div>
               </div>
@@ -137,8 +127,6 @@
           </div>
         </div>
       </div>
-
-
 
     </div>
   </div>

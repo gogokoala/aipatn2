@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { SF1Service, SF1Response } from '../sf1.service'
 
 @Component({
   selector: 'app-sf1-list',
@@ -29,12 +30,26 @@ export class SF1ListComponent implements OnInit {
   ]
 
   searchKeyword: Observable<string>
+  sf1: SF1Response
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private service: SF1Service
+  ) {}
 
   ngOnInit() {
-    this.searchKeyword = this.route.queryParamMap.map(params => params.get('kw') || 'None');
+    this.route.data.subscribe((data: { crisis: SF1Response }) => {
+      console.log(data.crisis)
+      this.sf1 = data.crisis;
+      console.log(this.sf1)
+    })
   }
 
+  getDbName(code: string) {
+    const db = this.service.getDatabase(code)
+    if (db) {
+      return db.name
+    }
+    return ''
+  }
 }
