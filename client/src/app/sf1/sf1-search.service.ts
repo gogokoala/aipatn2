@@ -1,6 +1,6 @@
 import * as moment from 'moment'
 
-export class SF1SearchConditionItem {
+class SF1SearchConditionItem {
   op: string
   value: string
   mode: string
@@ -16,7 +16,7 @@ export class SF1SearchConditionItem {
   }
 }
 
-export class SF1SearchCondition {
+class SF1SearchCondition {
   id: number
   name: Array<string>
   title: string
@@ -136,6 +136,50 @@ export class SF1SearchExp {
   name_group : Array<SF1SearchCondition>
   date_group : Array<SF1SearchCondition>
 
+  lastKeyWord : string
+
+  db_group: any[] = [
+    { id: 0, name: '全部数据', sub_types: [] },
+    {
+      id: 1, name: '中国', sub_types: [
+        { id: 1, code: 'FMZL', name: '中国发明专利' },
+        { id: 2, code: 'FMSQ', name: '中国发明授权' },
+        { id: 3, code: 'SYXX', name: '中国实用新型' },
+        { id: 4, code: 'WGZL', name: '中国外观专利' },
+        { id: 5, code: 'TWZL', name: '台湾' },
+        { id: 6, code: 'HKPATENT', name: '香港' },
+      ]
+    },
+    {
+      id: 2, name: '主要国家和组织', sub_types: [
+        { id: 1, code: 'USPATENT', name: '美国' },
+        { id: 2, code: 'GBPATENT', name: '英国' },
+        { id: 3, code: 'FRPATENT', name: '法国' },
+        { id: 4, code: 'DEPATENT', name: '德国' },
+        { id: 5, code: 'CHPATENT', name: '瑞士' },
+        { id: 6, code: 'JPPATENT', name: '日本' },
+        { id: 7, code: 'RUPATENT', name: '俄罗斯' },
+        { id: 8, code: 'KRPATENT', name: '韩国' },
+        { id: 9, code: 'EPPATENT', name: '欧洲专利局(EPO)' },
+        { id: 10, code: 'WOPATENT', name: '世界知识产权组织(WIPO)' },
+      ]
+    },
+    {
+      id: 3, name: '其它国家和地区', sub_types: [
+        { id: 1, code: 'GCPATENT', name: '阿拉伯' },
+        { id: 2, code: 'AUPATENT', name: '澳大利亚' },
+        { id: 3, code: 'CAPATENT', name: '加拿大' },
+        { id: 4, code: 'ESPATENT', name: '西班牙' },
+        { id: 5, code: 'ATPATENT', name: '奥地利' },
+        { id: 6, code: 'ITPATENT', name: '意大利' },
+        { id: 7, code: 'APPATENT', name: '非洲地址' },
+        { id: 8, code: 'SEPATENT', name: '瑞典' },
+        { id: 9, code: 'ASPATENT', name: '东南亚' },
+        { id: 10, code: 'OTHERPATENT', name: '更多其它国家' },
+      ]
+    },
+  ]
+
   constructor() {
     this.clear();
   }
@@ -148,6 +192,11 @@ export class SF1SearchExp {
   }
 
   clear(){
+    this.lastKeyWord=''
+
+    this.db_group[0].checked=true;
+    this.dbCheckAll(true);
+
     this.key_group = Array<SF1SearchCondition>()
     this.code_group = Array<SF1SearchCondition>()
     this.type_group = Array<SF1SearchCondition>()
@@ -198,13 +247,15 @@ export class SF1SearchExp {
   }
 
   buildKeySearch(text:string){
-    this.clear();
+    this.clear()
+    this.lastKeyWord=text
     this.key_group[0].items[0].value=text
-    return this.getValue();
+    return this.getValue()
   }
 
   buildCodeSearch(text:string){
     this.clear();
+    this.lastKeyWord=text
     this.type_group[0].items[0].value=text
     return this.getValue();
   }
@@ -279,6 +330,49 @@ export class SF1SearchExp {
     v += d
 
     return v
+  }
+
+  dbCheckAll(bl: boolean) {
+    this.db_group.forEach((g)=>{
+      g.checked=bl;
+      g.sub_types.forEach((t)=>{
+        t.checked=bl;
+      })
+    })
+  }
+
+  onDBGroupChange(g) {
+    if (g.id == 0) {
+      this.dbCheckAll(g.checked)
+    }
+    else {
+      this.db_group[0].checked = false
+      g.sub_types.forEach((v) => {
+        v.checked = g.checked
+      })
+    }
+  }
+
+  onDBSubChange(g,t) {
+    g.checked=false
+    this.db_group[0].checked=false
+  }
+
+  getDBValue(){
+    //let j=JSON.stringify(this.db_group[0])
+
+    let r=''
+
+    this.db_group.forEach((g)=>{
+      g.sub_types.forEach((t)=>{
+        if (t.checked){
+          r+=((r=='')?'':',')
+          r+=t.code
+        }
+      })
+    })
+
+    return r
   }
 
   private getKeyWordsFromGroup(group: Array<SF1SearchCondition>, s: Array<string>) {

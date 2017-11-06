@@ -33,6 +33,7 @@ puyd:
 1.ComplexSearch查询条件全局存储
 2.实现buildKeySearch和buildCodeSearch
 3.实现getKeyWords
+4.实现数据库选择getDBValue
 
 steps:
 1. sf1-list-resolver.service.ts编码
