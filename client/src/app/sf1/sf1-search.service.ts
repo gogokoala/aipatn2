@@ -287,7 +287,7 @@ export class SF1SearchExp {
   private getKeyWordsFromGroup(group: Array<SF1SearchCondition>, s: Array<string>) {
     group.forEach((v) => {
       v.items.forEach((v) => {
-        if (v.value == '') return;
+        if ((v.value == '') || (v.op=='NOT') ) return;
         let i = s.indexOf(v.value);
         if (i < 0) {
           s.push(v.value);
