@@ -67,7 +67,9 @@ export async function search (ctx: Context, next: Function) {
         throw new Error(`${sf1Resp.status} - ${sf1Resp.message}`)
     }
 
-    // TODO - 更新日志
+    // TODO - 检索条件保存至Session
+    // TODO- 检索条件保存至数据库
+
     
     ctx.state.data = sf1Resp
 }
