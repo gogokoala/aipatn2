@@ -12,7 +12,12 @@ puyd:
 puyd:
 1.实现关键字段查询
 
+steps:
+1.完善api/sf1
+
 ### 2017-11-04 ###
+steps:
+1.sf1简单检索继续编码，增加sf1-list-resolver.service.ts
 
 ### 2017-11-05 ###
 puyd:
@@ -28,3 +33,8 @@ puyd:
 1.ComplexSearch查询条件全局存储
 2.实现buildKeySearch和buildCodeSearch
 3.实现getKeyWords
+
+steps:
+1. sf1-list-resolver.service.ts编码
+2. sf1-list 页面数据显示
+3. 讨论检索结果及二次检索的实现方法

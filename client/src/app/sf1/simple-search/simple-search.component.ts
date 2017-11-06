@@ -10,9 +10,8 @@ import { SF1SearchExp } from '../sf1-search.service';
 export class SimpleSearchComponent implements OnInit {
 
   searchKeyword: string
-  private searchExp = new SF1SearchExp()
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private searchExp: SF1SearchExp) { }
 
   ngOnInit() {
   }
