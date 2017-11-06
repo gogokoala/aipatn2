@@ -12,6 +12,8 @@ import { SimpleSearchComponent } from './simple-search/simple-search.component'
 import { SF1DetailComponent } from './sf1-detail/sf1-detail.component'
 import { SF1SearchExp } from './sf1-search.service'
 
+import { FooterComponent } from '../footer/footer.component'
+
 
 @NgModule({
   imports: [
@@ -24,7 +26,8 @@ import { SF1SearchExp } from './sf1-search.service'
     SimpleSearchComponent,
     ComplexSearchComponent,
     SF1ListComponent,
-    SF1DetailComponent
+    SF1DetailComponent,
+    FooterComponent
   ],
   providers: [
     SF1Service,

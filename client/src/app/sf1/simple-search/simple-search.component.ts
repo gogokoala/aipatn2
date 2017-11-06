@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service'
 import { SF1SearchExp } from '../sf1-search.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class SimpleSearchComponent implements OnInit {
 
   searchKeyword: string
 
-  constructor(private router: Router, private searchExp: SF1SearchExp) { }
+  constructor(
+    private router: Router,
+    private user: UserService,
+    private searchExp: SF1SearchExp
+  ) { }
 
   ngOnInit() {
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {SF1SearchExp } from '../sf1-search.service';
+import { UserService } from '../../services/user.service'
+import { SF1SearchExp } from '../sf1-search.service';
 
 @Component({
   selector: 'app-complex-search',
@@ -28,17 +29,21 @@ export class ComplexSearchComponent implements OnInit {
     monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
   }
 
-  exp:SF1SearchExp
+  exp: SF1SearchExp
 
-  constructor(private router: Router,private sf1Exp: SF1SearchExp) {
-    this.exp=sf1Exp
+  constructor(
+    private router: Router,
+    private user: UserService,
+    private sf1Exp: SF1SearchExp
+  ) {
+    this.exp = sf1Exp
   }
 
   ngOnInit() {
   }
 
   doSearch() {
-    let k=this.exp.getKeyWords();
+    const k = this.exp.getKeyWords();
     console.log(k);
 
     // const link = ['/sf1/search']

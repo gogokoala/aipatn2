@@ -39,3 +39,11 @@ steps:
 1. sf1-list-resolver.service.ts编码
 2. sf1-list 页面数据显示
 3. 讨论检索结果及二次检索的实现方法
+
+### 2017-11-06 ###
+steps:
+1. 格式化sf1-search.service
+2. 修正footer显示错误
+3. 各页面增加user: UserService
+4. 测试已有代码(进行中)
+5. TODO: 高级检索面页，各条件中首条件均未显示NOT

@@ -76,8 +76,8 @@ class SF1SearchCondition {
 
     for (let i = 0; i < this.items.length; i++) {
       const it = this.items[i]
-      let f = it.from;
-      let t = it.to;
+      let f = it.from
+      let t = it.to
 
       let fs = ''
       let ts = ''
@@ -85,26 +85,26 @@ class SF1SearchCondition {
       switch (it.mode) {
         case '1':
           if (t !== null) {
-            f = new Date('1970-01-01');
+            f = new Date('1970-01-01')
           }
-          break;
+          break
         case '2':
           if (f !== null) {
-            t = new Date();
+            t = new Date()
           }
-          break;
+          break
         case '3':
           if (f !== null) {
-            t = f;
+            t = f
           }
-          break;
+          break
       }
 
       if (f !== null && t !== null) {
-        fs = moment(f).format('YYYYMMDD');
-        ts = moment(t).format('YYYYMMDD');
+        fs = moment(f).format('YYYYMMDD')
+        ts = moment(t).format('YYYYMMDD')
 
-        let r = '';
+        let r = ''
 
         for (let j = 0; j < this.name.length; j++) {
           if (r !== '') {
@@ -125,18 +125,18 @@ class SF1SearchCondition {
     if (v !== '') {
       v = '(' + v + ')'
     }
-    return v;
+    return v
   }
 }
 
 export class SF1SearchExp {
-  key_group : Array<SF1SearchCondition>
-  code_group : Array<SF1SearchCondition>
-  type_group : Array<SF1SearchCondition>
-  name_group : Array<SF1SearchCondition>
-  date_group : Array<SF1SearchCondition>
+  key_group: Array<SF1SearchCondition>
+  code_group: Array<SF1SearchCondition>
+  type_group: Array<SF1SearchCondition>
+  name_group: Array<SF1SearchCondition>
+  date_group: Array<SF1SearchCondition>
 
-  lastKeyWord : string
+  lastKeyWord: string
 
   db_group: any[] = [
     { id: 0, name: '全部数据', sub_types: [] },
@@ -181,7 +181,7 @@ export class SF1SearchExp {
   ]
 
   constructor() {
-    this.clear();
+    this.clear()
   }
 
   private initGroup(data: any[], group: Array<SF1SearchCondition>) {
@@ -191,18 +191,18 @@ export class SF1SearchExp {
     }
   }
 
-  clear(){
-    this.lastKeyWord=''
+  clear() {
+    this.lastKeyWord = ''
 
-    this.db_group[0].checked=true;
-    this.dbCheckAll(true);
+    this.db_group[0].checked = true
+    this.dbCheckAll(true)
 
     this.key_group = Array<SF1SearchCondition>()
     this.code_group = Array<SF1SearchCondition>()
     this.type_group = Array<SF1SearchCondition>()
     this.name_group = Array<SF1SearchCondition>()
     this.date_group = Array<SF1SearchCondition>()
-    
+
     const k: any[] = [
       { id: 1, name: ['名称', '摘要', '权利要求书', '说明书'], title: '所有字段' },
       { id: 2, name: ['名称', '摘要'], title: '专利名称/摘要' },
@@ -211,21 +211,21 @@ export class SF1SearchExp {
       { id: 5, name: ['摘要'], title: '摘要' },
       { id: 6, name: ['权利要求书'], title: '权利要求' },
       { id: 8, name: ['说明书'], title: '说明书' },
-    ];
-    this.initGroup(k,this.key_group);
+    ]
+    this.initGroup(k, this.key_group)
 
     const c: any[] = [
       { id: 1, name: ['申请号'], title: '申请号' },
       { id: 2, name: ['公开（公告）号'], title: '公开（公告）号' },
       { id: 3, name: ['优先权'], title: '优先权号' },
-    ];
-    this.initGroup(c,this.code_group);
+    ]
+    this.initGroup(c, this.code_group)
 
     const t: any[] = [
       { id: 1, name: ['分类号'], title: '国际分类号（IPC）' },
       // { id: 2, name: [], title: '外观分类(Locarno)' },
-    ];
-    this.initGroup(t,this.type_group);
+    ]
+    this.initGroup(t, this.type_group)
 
     const n: any[] = [
       { id: 1, name: ['申请（专利权）人'], title: '申请（专利权）人' },
@@ -235,34 +235,34 @@ export class SF1SearchExp {
       { id: 5, name: ['代理人'], title: '代理人' },
       { id: 6, name: ['专利代理机构'], title: '代理机构' },
       { id: 8, name: ['地址'], title: '申请人地址' },
-    ];
-    this.initGroup(n, this.name_group);
+    ]
+    this.initGroup(n, this.name_group)
 
     const d: any[] = [
       { id: 1, name: ['申请日'], title: '申请日' },
       { id: 2, name: ['公开（公告）日'], title: '公开（公告）日' },
       { id: 3, name: ['优先权日'], title: '授权日' },
-    ];
-    this.initGroup(d,this.date_group);
+    ]
+    this.initGroup(d, this.date_group)
   }
 
-  buildKeySearch(text:string){
+  buildKeySearch(text: string) {
     this.clear()
-    this.lastKeyWord=text
-    this.key_group[0].items[0].value=text
+    this.lastKeyWord = text
+    this.key_group[0].items[0].value = text
     return this.getValue()
   }
 
-  buildCodeSearch(text:string){
-    this.clear();
-    this.lastKeyWord=text
-    this.type_group[0].items[0].value=text
-    return this.getValue();
+  buildCodeSearch(text: string) {
+    this.clear()
+    this.lastKeyWord = text
+    this.type_group[0].items[0].value = text
+    return this.getValue()
   }
 
   private getValueByGroup(group: Array<SF1SearchCondition>) {
-    if (group==null) {
-      return '';
+    if (group == null) {
+      return ''
     }
     let v = ''
     for (let i = 0; i < group.length; i++) {
@@ -279,10 +279,10 @@ export class SF1SearchExp {
   }
 
   private getDateValueByGroup(group: Array<SF1SearchCondition>) {
-    if (group==null) {
-      return '';
+    if (group == null) {
+      return ''
     }
-    
+
     let v = ''
 
     for (let i = 0; i < group.length; i++) {
@@ -299,7 +299,7 @@ export class SF1SearchExp {
   }
 
   getValue() {
-    // let j=JSON.stringify(this.date_group);
+    // let j=JSON.stringify(this.date_group)
 
     const k = this.getValueByGroup(this.key_group)
     const c = this.getValueByGroup(this.code_group)
@@ -333,19 +333,18 @@ export class SF1SearchExp {
   }
 
   dbCheckAll(bl: boolean) {
-    this.db_group.forEach((g)=>{
-      g.checked=bl;
-      g.sub_types.forEach((t)=>{
-        t.checked=bl;
+    this.db_group.forEach((g) => {
+      g.checked = bl
+      g.sub_types.forEach((t) => {
+        t.checked = bl
       })
     })
   }
 
   onDBGroupChange(g) {
-    if (g.id == 0) {
+    if (g.id === 0) {
       this.dbCheckAll(g.checked)
-    }
-    else {
+    } else {
       this.db_group[0].checked = false
       g.sub_types.forEach((v) => {
         v.checked = g.checked
@@ -353,21 +352,21 @@ export class SF1SearchExp {
     }
   }
 
-  onDBSubChange(g,t) {
-    g.checked=false
-    this.db_group[0].checked=false
+  onDBSubChange(g, t) {
+    g.checked = false
+    this.db_group[0].checked = false
   }
 
-  getDBValue(){
-    //let j=JSON.stringify(this.db_group[0])
+  getDBValue() {
+    // let j=JSON.stringify(this.db_group[0])
 
-    let r=''
+    let r = ''
 
-    this.db_group.forEach((g)=>{
-      g.sub_types.forEach((t)=>{
-        if (t.checked){
-          r+=((r=='')?'':',')
-          r+=t.code
+    this.db_group.forEach((g) => {
+      g.sub_types.forEach((t) => {
+        if (t.checked) {
+          r += ((r === '') ? '' : ',')
+          r += t.code
         }
       })
     })
@@ -377,26 +376,28 @@ export class SF1SearchExp {
 
   private getKeyWordsFromGroup(group: Array<SF1SearchCondition>, s: Array<string>) {
     group.forEach((v) => {
-      v.items.forEach((v) => {
-        if ((v.value == '') || (v.op=='NOT') ) return;
-        let i = s.indexOf(v.value);
-        if (i < 0) {
-          s.push(v.value);
+      v.items.forEach((w) => {
+        if ((w.value === '') || (w.op === 'NOT')) {
+          return
         }
-      });
+        const i = s.indexOf(w.value)
+        if (i < 0) {
+          s.push(w.value)
+        }
+      })
 
-    });
+    })
   }
 
-  getKeyWords(){
-    let s=Array<string>();
+  getKeyWords() {
+    const s = Array<string>()
 
-    this.getKeyWordsFromGroup(this.key_group,s);
-    this.getKeyWordsFromGroup(this.code_group,s);
-    this.getKeyWordsFromGroup(this.type_group,s);
-    this.getKeyWordsFromGroup(this.name_group,s);
+    this.getKeyWordsFromGroup(this.key_group, s)
+    this.getKeyWordsFromGroup(this.code_group, s)
+    this.getKeyWordsFromGroup(this.type_group, s)
+    this.getKeyWordsFromGroup(this.name_group, s)
 
-    return s;
+    return s
   }
 
 

@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http'
 /* App Component */
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
-import { FooterComponent } from './footer/footer.component'
+// import { FooterComponent } from './footer/footer.component'
 
 /* Routing Module */
 import { AppRoutingModule } from './app-routing.module'
@@ -22,7 +22,7 @@ import { TestComponent } from './test/test.component'
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
+//    FooterComponent,
     TestComponent,
   ],
   imports: [
