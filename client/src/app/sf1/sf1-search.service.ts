@@ -138,6 +138,7 @@ export class SF1SearchExp {
   date_group = Array<SF1SearchCondition>()
 
   constructor() {
+    this.initComplexSearch();
   }
 
   private initGroup(data: any[], group: Array<SF1SearchCondition>) {
@@ -195,12 +196,10 @@ export class SF1SearchExp {
     const k: any[] = [
       { id: 1, name: ['名称', '摘要', '权利要求书', '说明书'], title: '所有字段' },
     ]
-    this.initGroup(k,this.key_group)
-    this.key_group[0].items[0].value=text
-
-    let v=this.getValueByGroup(this.key_group)
-    console.log(v)
-    return v
+    let g=new Array<SF1SearchCondition>()
+    this.initGroup(k,g)
+    g[0].items[0].value=text
+    return this.getValueByGroup(g)
   }
 
   buildCodeSearch(text:string){
@@ -208,11 +207,10 @@ export class SF1SearchExp {
       { id: 1, name: ['分类号'], title: '国际分类号（IPC）' },
       // { id: 2, name: [], title: '外观分类(Locarno)' },
     ]
-    this.initGroup(t,this.type_group)
-    this.type_group[0].items[0].value=text
-    let v=this.getValueByGroup(this.type_group)
-    console.log(v)
-    return v
+    let g=new Array<SF1SearchCondition>()
+    this.initGroup(t,g)
+    g[0].items[0].value=text
+    return this.getValueByGroup(g)
   }
 
   private getValueByGroup(group: Array<SF1SearchCondition>) {

@@ -10,6 +10,8 @@ import { SF1ListComponent } from './sf1-list/sf1-list.component'
 import { ComplexSearchComponent } from './complex-search/complex-search.component'
 import { SimpleSearchComponent } from './simple-search/simple-search.component'
 import { SF1DetailComponent } from './sf1-detail/sf1-detail.component'
+import { SF1SearchExp } from './sf1-search.service'
+
 
 @NgModule({
   imports: [
@@ -24,7 +26,12 @@ import { SF1DetailComponent } from './sf1-detail/sf1-detail.component'
     SF1ListComponent,
     SF1DetailComponent
   ],
-  providers: [SF1Service]
+  providers: [
+    SF1Service,
+    SF1SearchExp
+  ]
 })
 
-export class SF1Module { }
+export class SF1Module {
+
+}

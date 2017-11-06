@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SF1SearchCondition, SF1SearchConditionItem, SF1SearchExp } from '../sf1-search.service';
+import {SF1SearchExp } from '../sf1-search.service';
 
 @Component({
   selector: 'app-complex-search',
@@ -70,19 +70,18 @@ export class ComplexSearchComponent implements OnInit {
     },
   ];
 
-  exp = new SF1SearchExp();
+  exp:SF1SearchExp;
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router,private sf1Exp: SF1SearchExp) {
+    this.exp=sf1Exp
   }
 
   ngOnInit() {
-    this.exp.initComplexSearch();
   }
 
   doSearch() {
-    const link = ['/sf1/search'];
-    this.router.navigate(link);
+    const link = ['/sf1/search']
+    this.router.navigate(link)
   }
 
   // valToString(){
