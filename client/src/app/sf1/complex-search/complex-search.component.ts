@@ -80,13 +80,10 @@ export class ComplexSearchComponent implements OnInit {
   }
 
   doSearch() {
+    let k=this.exp.getKeyWords();
+    console.log(k);
+
     const link = ['/sf1/search']
     this.router.navigate(link)
   }
-
-  // valToString(){
-  //   let v='';
-  //   v = JSON.stringify(this.key_group);
-  //   return v;
-  // }
 }

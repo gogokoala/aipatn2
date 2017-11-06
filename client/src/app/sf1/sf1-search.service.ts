@@ -127,7 +127,6 @@ export class SF1SearchCondition {
     }
     return v;
   }
-
 }
 
 export class SF1SearchExp {
@@ -283,6 +282,30 @@ export class SF1SearchExp {
     v += d
 
     return v
+  }
+
+  private getKeyWordsFromGroup(group: Array<SF1SearchCondition>, s: Array<string>) {
+    group.forEach((v) => {
+      v.items.forEach((v) => {
+        if (v.value == '') return;
+        let i = s.indexOf(v.value);
+        if (i < 0) {
+          s.push(v.value);
+        }
+      });
+
+    });
+  }
+
+  getKeyWords(){
+    let s=Array<string>();
+
+    this.getKeyWordsFromGroup(this.key_group,s);
+    this.getKeyWordsFromGroup(this.code_group,s);
+    this.getKeyWordsFromGroup(this.type_group,s);
+    this.getKeyWordsFromGroup(this.name_group,s);
+
+    return s;
   }
 
 
