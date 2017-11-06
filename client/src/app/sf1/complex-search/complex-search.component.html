@@ -52,7 +52,7 @@
               <input type="hidden" name="sc" value="35184372088831">
               <div>
                 <button (click)="doSearch()" class="btn btn-primary">检索</button>
-                <a href="#" class="btn btn-default">清空</a>
+                <a class="btn btn-default" (click)="exp.clear()">清空</a>
                 <a href="#" class="btn btn-default">查看命中条数
                   <span class="badge">{{result_num}}</span>
                 </a>
