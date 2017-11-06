@@ -1,22 +1,28 @@
 <div class="container-fluid fr-main">
   <div class="row fr-disp">
     <div class="col-xs-2 fr-left">
-      <div *ngFor="let g of dbgroups" class="panel panel-primary">
+      
+
+      <div *ngFor="let g of exp.db_group" class="panel panel-primary">
         <div class="panel-heading">
-          <input type="checkbox" checked="">
+          <input type="checkbox" [(ngModel)]="g.checked" (change)="exp.onDBGroupChange(g)" >
           <span class="panel-title">{{g.name}}</span>
         </div>
         <div class="panel-body">
           <ul>
             <li *ngFor="let t of g.sub_types">
               <label>
-                <input type="checkbox" data-value="{{t.code}}" checked="">
+                <input type="checkbox" [(ngModel)]="t.checked" (change)="exp.onDBSubChange(g,t)">
                 <span>{{t.name}}</span>
               </label>
             </li>
           </ul>
         </div>
       </div>
+
+      <textarea class="form-control" rows="5" id="textArea" readonly="readonly" style="margin-bottom: 5px;" [ngModel]="exp.getDBValue()">
+      </textarea>
+
     </div>
     <!--表达式-->
     <div class="col-xs-10 fr-right">
