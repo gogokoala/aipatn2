@@ -32,4 +32,6 @@ export async function response (ctx: Context, next: Function) {
             error: e && e.message ? e.message : e.toString()
         }
     }
+
+    ctx.response.headers['Access-Control-Allow-Origin'] = '*'
 }

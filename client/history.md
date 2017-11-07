@@ -47,6 +47,7 @@ steps:
 3. 各页面增加user: UserService
 4. 测试已有代码(进行中)
 5. TODO: 高级检索面页，各条件中首条件均未显示NOT
+6. 修正server/redisstore.ts使用阿里云Redis
 
 puyd:
 1. 修改查询条件的生成逻辑，放开首字段不能为NOT的限制，但是受API限制，以NOT开头的查询条件不能被执行

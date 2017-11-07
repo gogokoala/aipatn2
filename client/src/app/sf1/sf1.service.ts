@@ -71,7 +71,7 @@ export interface PatentDatabase {
 export class SF1Service {
 
   private headers = new Headers({'Content-Type': 'application/json'})
-  private sf1Url = 'http://192.168.0.216/api/sf1'
+  private sf1Url = 'http://www.aipatn.com/api/sf1'
 
   private dbGroups: Array<PatentGroup> = [
     {name: '中国', code: 'CN'},
