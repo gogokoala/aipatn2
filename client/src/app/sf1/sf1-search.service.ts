@@ -41,11 +41,16 @@ class SF1SearchCondition {
 
   getValue() {
     let v = ''
+    let p=''
+
     for (let i = 0; i < this.items.length; i++) {
       const it = this.items[i]
       if (it.value.trim() !== '') {
         if (v !== '') {
           v += (' ' + it.op + ' ')
+        }
+        else {
+          p=it.op
         }
         v += it.value
       }
@@ -65,7 +70,7 @@ class SF1SearchCondition {
     }
 
     if (r !== '') {
-      r = '(' + r + ')'
+      r = (p +' (' + r + ')')
     }
 
     return r
@@ -73,6 +78,7 @@ class SF1SearchCondition {
 
   getDateValue() {
     let v = ''
+    let p =''
 
     for (let i = 0; i < this.items.length; i++) {
       const it = this.items[i]
@@ -117,13 +123,16 @@ class SF1SearchCondition {
           if (v !== '') {
             v += (' ' + it.op + ' ')
           }
+          else{
+            p=it.op
+          }
           v += r
         }
       }
     }
 
     if (v !== '') {
-      v = '(' + v + ')'
+      v = (p+' (' + v + ')')
     }
     return v
   }
@@ -269,7 +278,7 @@ export class SF1SearchExp {
       const r = group[i].getValue()
       if (r !== '') {
         if (v !== '') {
-          v += ' and '
+          v += ' '
         }
         v += r
       }
@@ -289,7 +298,7 @@ export class SF1SearchExp {
       const r = group[i].getDateValue()
       if (r !== '') {
         if (v !== '') {
-          v += ' ' + group[i].items[0].op + ' '
+          v += ' '
         }
         v += r
       }
@@ -310,24 +319,31 @@ export class SF1SearchExp {
     let v = k
 
     if (c !== '' && v !== '') {
-      v += ' and '
+      v += ' '
     }
     v += c
 
     if (t !== '' && v !== '') {
-      v += ' and '
+      v += ' '
     }
     v += t
 
     if (n !== '' && v !== '') {
-      v += ' and '
+      v += ' '
     }
     v += n
 
     if (d !== '' && v !== '') {
-      v += ' and '
+      v += ' '
     }
     v += d
+
+    if (v.startsWith('AND')){
+      return v.substr(4,v.length-4)
+    }
+    else if (v.startsWith('OR')){
+      return v.substr(3,v.length-3)
+    }
 
     return v
   }
