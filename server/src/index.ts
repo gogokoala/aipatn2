@@ -9,6 +9,7 @@ import * as config from 'config'
 import * as Debug from 'debug'
 import * as jwtKoa from 'koa-jwt'
 import { oauth2 } from './controller/cnipr/auth'
+import * as cors from 'koa2-cors'
 
 const debug = Debug('aipatn.server')
 
@@ -29,6 +30,17 @@ createConnection().then(async connection => {
 
     // create koa app
     const app = new Koa()
+
+    app.use(cors({
+        origin: function (ctx) {
+            return '*'
+        },
+        exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+        maxAge: 15,
+        credentials: true,
+        allowMethods: ['GET', 'POST'],
+        allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+    }))
 
     // Middleware below this line is only reached if JWT token is valid
     // unless the URL starts with '/api/login, /api/register'
