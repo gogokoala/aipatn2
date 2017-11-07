@@ -1,4 +1,5 @@
 import { Context } from 'koa'
+import * as config from 'config'
 import * as Redis from 'ioredis'
 import { randomBytes } from 'crypto'
 import * as uuidv4 from 'uuid/v4'
@@ -9,8 +10,16 @@ import * as uuidv4 from 'uuid/v4'
 class RedisStore {
     private client: Redis.Redis
 
+    private host: string
+    private port: number
+    private pass: string
+
     constructor() {
-        this.client = new Redis()
+        this.host = config.get<string>('redis.host')
+        this.port = config.get<number>('redis.port')
+        this.pass = config.get<string>('redis.pass')
+        
+        this.client = new Redis(this.port, this.host, { password: this.pass })
     }
 
     /**
