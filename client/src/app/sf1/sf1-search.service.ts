@@ -338,7 +338,7 @@ export class SF1SearchExp {
     }
     v += d
 
-    if (v.startsWith('AND')){
+    if (v.startsWith('AND') || v.startsWith('NOT')){
       return v.substr(4,v.length-4)
     }
     else if (v.startsWith('OR')){
