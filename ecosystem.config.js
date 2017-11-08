@@ -20,12 +20,14 @@ module.exports = {
       }
     },
 
+    /*
     // Second application
     {
       name      : 'aipatn.web',
       script    : 'ng serve --host 0.0.0.0 --port 8100 --disable-host-check',
       watch     : true
     }
+    */
   ],
 
   /**
@@ -35,18 +37,18 @@ module.exports = {
   deploy : {
     production : {
       user : 'node',
-      host : '212.83.163.1',
+      host : 'www.aipatn.com',
       ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/production',
+      repo : 'git@github.com:gogokoala/aipatn2.git',
+      path : '/mnt/disk1/www/production',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     },
     dev : {
       user : 'node',
-      host : '212.83.163.1',
+      host : 'www.aipatn.com',
       ref  : 'origin/master',
       repo : 'git@github.com:repo.git',
-      path : '/var/www/development',
+      path : '/mnt/disk1/www/development',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
       env  : {
         NODE_ENV: 'dev'
