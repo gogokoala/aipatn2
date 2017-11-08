@@ -39,7 +39,7 @@ module.exports = {
       user : 'node',
       host : 'www.aipatn.com',
       ref  : 'origin/master',
-      repo : 'git@github.com:gogokoala/aipatn2.git',
+      repo : 'https://github.com/gogokoala/aipatn2.git',
       path : '/mnt/disk1/www/production',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     },
@@ -47,7 +47,7 @@ module.exports = {
       user : 'node',
       host : 'www.aipatn.com',
       ref  : 'origin/master',
-      repo : 'git@github.com:gogokoala/aipatn2.git',
+      repo : 'https://github.com/gogokoala/aipatn2.git',
       path : '/mnt/disk1/www/development',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
       env  : {
