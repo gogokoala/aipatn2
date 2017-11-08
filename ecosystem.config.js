@@ -36,7 +36,7 @@ module.exports = {
    */
   deploy : {
     production : {
-      user : 'node',
+      user : 'root',
       host : 'www.aipatn.com',
       ref  : 'origin/master',
       repo : 'https://github.com/gogokoala/aipatn2.git',
@@ -44,12 +44,12 @@ module.exports = {
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     },
     dev : {
-      user : 'node',
+      user : 'root',
       host : 'www.aipatn.com',
       ref  : 'origin/master',
       repo : 'https://github.com/gogokoala/aipatn2.git',
       path : '/mnt/disk1/www/development',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
+      'post-deploy' : 'cd server && npm install && pm2 reload ecosystem.config.js --env dev',
       env  : {
         NODE_ENV: 'dev'
       }
